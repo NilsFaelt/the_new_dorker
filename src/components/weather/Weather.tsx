@@ -1,3 +1,4 @@
+import { FormEvent, useState } from "react";
 import Styles from "./weather.module.css";
 
 interface Condition {
@@ -16,13 +17,22 @@ interface Props {
 }
 
 const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
+  const [getCity, setGetCity] = useState<string>("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setCity(getCity);
+    setGetCity("");
+    console.log("yabadabadoo");
+  };
   return (
     <div className={Styles.container}>
-      <form action=''>
+      <form onSubmit={(e) => handleSubmit(e)} action=''>
         <input
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => setGetCity(e.target.value)}
           type='text'
           placeholder='City'
+          value={getCity}
         />
       </form>
       <h2 className={Styles.title}> City: {city}</h2>

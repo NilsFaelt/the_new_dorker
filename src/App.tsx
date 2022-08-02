@@ -7,13 +7,14 @@ import "./index.css";
 
 function App() {
   const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
-  const [city, setCity] = useState<string>("stockholm");
+  const [city, setCity] = useState<string>("miami");
   const [weather, setWeather] = useState<any | null>(null);
+  console.log(city);
 
   const fetchWeather = async () => {
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}=${setCity}&aqi=no`
+        `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}=${city}&aqi=no`
       );
       setWeather(response.data.current);
     } catch (err) {
@@ -23,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchWeather();
-  }, []);
+  }, [city]);
   console.log(weather);
 
   return (
