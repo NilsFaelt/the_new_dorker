@@ -8,6 +8,7 @@ interface Condition {
 interface Weather {
   condition: Condition;
   temp_c: number;
+  is_day: number;
 }
 
 interface Props {
@@ -26,7 +27,11 @@ const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
     console.log("yabadabadoo");
   };
   return (
-    <div className={Styles.container}>
+    <div
+      className={
+        weather?.is_day === 1 ? Styles.container : Styles.containerNight
+      }
+    >
       <form onSubmit={(e) => handleSubmit(e)} action=''>
         <input
           onChange={(e) => setGetCity(e.target.value)}
@@ -36,9 +41,15 @@ const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
         />
       </form>
       <h2 className={Styles.title}> City: {city}</h2>
-      <p>temp:{weather?.temp_c}</p>
-      <p>{weather?.condition.text}</p>
-      <img className={Styles.logo} src={weather?.condition.icon} alt='' />
+      <p className={Styles.text}>Temp:{weather?.temp_c}</p>
+      <div className={Styles.logoWrapper}>
+        <p className={Styles.text}>{weather?.condition.text}</p>
+        <img
+          className={Styles.logo}
+          src={weather?.condition.icon}
+          alt='weatherLogo'
+        />
+      </div>
     </div>
   );
 };
