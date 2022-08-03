@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
+import Menu from "./components/menus/menu/Menu";
 import Weather from "./components/weather/Weather";
 import "./index.css";
 // import "dotenv/config";
@@ -22,15 +24,21 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchWeather();
-  }, [city]);
-  console.log(weather);
+  // useEffect(() => {
+  //   fetchWeather();
+  // }, [city]);
+  // console.log(weather);
 
   return (
     <div className='App'>
-      <Header />
-      <Weather weather={weather} city={city} setCity={setCity} />
+      <Header weather={weather} />
+      <Menu />
+      <Routes>
+        <Route
+          path='/weather'
+          element={<Weather weather={weather} city={city} setCity={setCity} />}
+        />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.container{
+  margin-top: 2vh;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+
+}
+.link{
+    font-size: calc(10px + 0.5vw);
+    color: black;
+    text-decoration: underline black 1px;
+    font-family: 'Cinzel', serif;
+  
+}
