@@ -1,0 +1,7 @@
+.container{
+    margin-top: 70vh;
+    width: 100vw;
+    height: 15vh;
+    background-color: rgb(226, 226, 226);
+    border-top: 1px solid black;
+}

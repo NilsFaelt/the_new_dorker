@@ -8,6 +8,9 @@
     box-shadow: 0px 0px 5px;
     background-color: rgb(226, 226, 226);
 }
+.link{
+    text-decoration: none;
+}
 .title{
     margin-top: 2vh;
     font-size: calc(18px + 1.7vw);

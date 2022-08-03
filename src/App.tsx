@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
 import Weather from "./components/weather/Weather";
@@ -38,6 +39,8 @@ function App() {
           element={<Weather weather={weather} city={city} setCity={setCity} />}
         />
       </Routes>
+
+      <Footer />
     </div>
   );
 }

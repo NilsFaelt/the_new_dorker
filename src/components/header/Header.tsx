@@ -2,6 +2,7 @@ import Styles from "./header.module.css";
 import { MenuIcon } from "@heroicons/react/outline";
 import { UserIcon } from "@heroicons/react/outline";
 import { getDate } from "../../functions/getDate";
+import { Link } from "react-router-dom";
 
 interface Condition {
   text: string;
@@ -24,7 +25,9 @@ const Header: React.FC<Props> = ({ weather, city }) => {
     <header className={Styles.container}>
       <MenuIcon className={Styles.burger} />
       <UserIcon className={Styles.user} />
-      <h1 className={Styles.title}>The New Dorker</h1>
+      <Link className={Styles.link} to={"/"}>
+        <h1 className={Styles.title}>The New Dorker</h1>
+      </Link>
       <div className={Styles.weatherDiv}>
         <div>
           <p>Weather: {city}</p>
