@@ -39,23 +39,25 @@ const Weather: React.FC<Props> = ({
       }
     >
       <XIcon onClick={() => setToogleWetaher(false)} className={Styles.xIcon} />
-      <form onSubmit={(e) => handleSubmit(e)} action=''>
-        <input
-          onChange={(e) => setGetCity(e.target.value)}
-          type='text'
-          placeholder='City'
-          value={getCity}
-        />
-      </form>
-      <h2 className={Styles.title}> City: {city}</h2>
-      <p className={Styles.text}>Temp:{weather?.temp_c}</p>
-      <div className={Styles.logoWrapper}>
-        <p className={Styles.text}>{weather?.condition.text}</p>
-        <img
-          className={Styles.logo}
-          src={weather?.condition.icon}
-          alt='weatherLogo'
-        />
+      <div className={Styles.infoContainer}>
+        <form onSubmit={(e) => handleSubmit(e)} action=''>
+          <input
+            onChange={(e) => setGetCity(e.target.value)}
+            type='text'
+            placeholder='City'
+            value={getCity}
+          />
+        </form>
+        <h2 className={Styles.title}> City: {city}</h2>
+        <p className={Styles.text}>Temp:{weather?.temp_c}</p>
+        <div className={Styles.logoWrapper}>
+          <p className={Styles.text}>{weather?.condition.text}</p>
+          <img
+            className={Styles.logo}
+            src={weather?.condition.icon}
+            alt='weatherLogo'
+          />
+        </div>
       </div>
     </div>
   );

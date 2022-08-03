@@ -11,7 +11,7 @@
 }
 .firstHr{
     margin: 0 auto;
-    margin-top: 12vh;
+    margin-top: 14vh;
     width: clamp(260px, 24vw, 900px);
     margin-bottom: 3vh;
 }
