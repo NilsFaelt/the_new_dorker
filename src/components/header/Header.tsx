@@ -19,9 +19,10 @@ interface Weather {
 interface Props {
   weather: Weather;
   city: string;
+  setToogleChat: (toogle: boolean) => void;
 }
 
-const Header: React.FC<Props> = ({ weather, city }) => {
+const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const date = getDate();
   const [toogleMenu, setToogleMenu] = useState(false);
   const toogleMenuOnClick = () => {
@@ -42,7 +43,7 @@ const Header: React.FC<Props> = ({ weather, city }) => {
         <img className={Styles.logo} src={weather?.condition.icon} alt='' />
       </div>
       <p className={Styles.date}> Date: {date}</p>
-      {toogleMenu ? <BurgerMenu /> : null}
+      {toogleMenu ? <BurgerMenu setToogleChat={setToogleChat} /> : null}
     </header>
   );
 };

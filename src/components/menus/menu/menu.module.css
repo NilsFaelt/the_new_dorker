@@ -15,3 +15,6 @@
     font-family: 'Cinzel', serif;
   
 }
+.link:hover{
+  color: rgb(109, 109, 109);
+}

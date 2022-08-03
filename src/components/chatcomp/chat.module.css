@@ -1,0 +1,38 @@
+.container{
+    position: sticky;
+    height: 37vh;
+    top: 52vh;
+    left: 70vw;
+    margin-right: clamp(30px, 2vw, 100px);
+    border: 0.2px solid black;
+    border-radius: 5px;
+    width: clamp(320px, 24vw, 400px);
+    padding: 2vw;
+    box-shadow: 5px 5px 5px;
+    background-color: rgb(226, 226, 226);
+}
+.textOutput{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 20vh;
+    border: 1px solid rgb(139, 139, 139);
+    border-radius: 5px;
+    padding: 1vw;
+    overflow: scroll;
+}
+.form{
+    display: flex;
+    flex-direction:column ;
+    margin-top: 3vh;
+}
+.xIcon{ 
+    width: calc(20px + 0.6vw);
+    margin-top: -1.5vw ;
+    margin-left: -1.5vw ;
+    margin-bottom: 1vh;
+    cursor: pointer;
+}
+.text{
+    margin-top: 0.4vh;
+}

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import Chat from "./components/chatcomp/Chat";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
@@ -12,7 +13,8 @@ function App() {
   const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
   const [city, setCity] = useState<string>("miami");
   const [weather, setWeather] = useState<any | null>(null);
-  const [tooglWeather, setToogleWetaher] = useState<boolean>(true);
+  const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
+  const [tooglChat, setToogleChat] = useState<boolean>(false);
   console.log(city);
 
   const fetchWeather = async () => {
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Header weather={weather} city={city} />
+      <Header setToogleChat={setToogleChat} weather={weather} city={city} />
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes></Routes>
       {tooglWeather ? (
@@ -43,7 +45,7 @@ function App() {
           setToogleWetaher={setToogleWetaher}
         />
       ) : null}
-
+      {tooglChat ? <Chat setToogleChat={setToogleChat} /> : null}
       <Footer />
     </div>
   );

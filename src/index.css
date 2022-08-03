@@ -2,3 +2,16 @@
 margin: 0;
 padding: 0;
 }
+button{
+    align-self: center;
+    margin-top: 1.3vh;
+    width: clamp(80px, 5vw, 100px);
+    border-radius: 5px;
+    border: solid 1px black;
+    padding: 0.3vw;
+    box-shadow: 1px 1px 1px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(231, 254, 231);
+}

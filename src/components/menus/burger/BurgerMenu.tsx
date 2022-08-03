@@ -1,7 +1,11 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import Styles from "./burgerMenu.module.css";
 
-const BurgerMenu = () => {
+interface Props {
+  setToogleChat: (toogle: boolean) => void;
+}
+const BurgerMenu: React.FC<Props> = ({ setToogleChat }) => {
   return (
     <nav className={Styles.container}>
       <ul className={Styles.firstUl}>
@@ -21,7 +25,11 @@ const BurgerMenu = () => {
       </ul>
       <hr className={Styles.secondHr} />
       <ul className={Styles.firstUl}>
-        <Link className={Styles.link} to={"/"}>
+        <Link
+          onClick={() => setToogleChat(true)}
+          className={Styles.link}
+          to={"/"}
+        >
           <li className={Styles.secondLi}>Chat</li>
         </Link>
         <Link className={Styles.link} to={"/"}>
