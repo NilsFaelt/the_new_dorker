@@ -15,9 +15,10 @@ interface Weather {
 
 interface Props {
   weather: Weather;
+  city: string;
 }
 
-const Header: React.FC<Props> = ({ weather }) => {
+const Header: React.FC<Props> = ({ weather, city }) => {
   const date = getDate();
   return (
     <header className={Styles.container}>
@@ -26,7 +27,7 @@ const Header: React.FC<Props> = ({ weather }) => {
       <h1 className={Styles.title}>The New Dorker</h1>
       <div className={Styles.weatherDiv}>
         <div>
-          <p>Weather: Stockholm</p>
+          <p>Weather: {city}</p>
           <p>Temp: {weather?.temp_c} °</p>
         </div>
         <img className={Styles.logo} src={weather?.condition.icon} alt='' />

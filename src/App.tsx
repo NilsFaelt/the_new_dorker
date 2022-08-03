@@ -27,11 +27,10 @@ function App() {
   // useEffect(() => {
   //   fetchWeather();
   // }, [city]);
-  // console.log(weather);
 
   return (
     <div className='App'>
-      <Header weather={weather} />
+      <Header weather={weather} city={city} />
       <Menu />
       <Routes>
         <Route

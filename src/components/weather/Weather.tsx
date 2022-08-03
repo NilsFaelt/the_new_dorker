@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import Styles from "./weather.module.css";
+import { XIcon } from "@heroicons/react/solid";
 
 interface Condition {
   text: string;
@@ -24,7 +25,6 @@ const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
     e.preventDefault();
     setCity(getCity);
     setGetCity("");
-    console.log("yabadabadoo");
   };
   return (
     <div
@@ -32,6 +32,7 @@ const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
         weather?.is_day === 1 ? Styles.container : Styles.containerNight
       }
     >
+      <XIcon className={Styles.xIcon} />
       <form onSubmit={(e) => handleSubmit(e)} action=''>
         <input
           onChange={(e) => setGetCity(e.target.value)}
