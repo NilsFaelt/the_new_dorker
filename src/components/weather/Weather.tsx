@@ -16,9 +16,15 @@ interface Props {
   setCity: (city: string) => void;
   city: string | null;
   weather: Weather;
+  setToogleWetaher: (change: boolean) => void;
 }
 
-const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
+const Weather: React.FC<Props> = ({
+  weather,
+  city,
+  setCity,
+  setToogleWetaher,
+}) => {
   const [getCity, setGetCity] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
@@ -32,7 +38,7 @@ const Weather: React.FC<Props> = ({ weather, city, setCity }) => {
         weather?.is_day === 1 ? Styles.container : Styles.containerNight
       }
     >
-      <XIcon className={Styles.xIcon} />
+      <XIcon onClick={() => setToogleWetaher(false)} className={Styles.xIcon} />
       <form onSubmit={(e) => handleSubmit(e)} action=''>
         <input
           onChange={(e) => setGetCity(e.target.value)}

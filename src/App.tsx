@@ -12,6 +12,7 @@ function App() {
   const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
   const [city, setCity] = useState<string>("miami");
   const [weather, setWeather] = useState<any | null>(null);
+  const [tooglWeather, setToogleWetaher] = useState<boolean>(true);
   console.log(city);
 
   const fetchWeather = async () => {
@@ -32,13 +33,16 @@ function App() {
   return (
     <div className='App'>
       <Header weather={weather} city={city} />
-      <Menu />
-      <Routes>
-        <Route
-          path='/weather'
-          element={<Weather weather={weather} city={city} setCity={setCity} />}
+      <Menu setToogleWetaher={setToogleWetaher} />
+      <Routes></Routes>
+      {tooglWeather ? (
+        <Weather
+          weather={weather}
+          city={city}
+          setCity={setCity}
+          setToogleWetaher={setToogleWetaher}
         />
-      </Routes>
+      ) : null}
 
       <Footer />
     </div>

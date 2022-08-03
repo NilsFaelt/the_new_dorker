@@ -1,5 +1,5 @@
 .container{
-    width: clamp(250px, 25vw, 400px);
+    width: clamp(300px, 25vw, 400px);
     height: 100vh;
     border: 1px solid black;
     background-color: rgb(226, 226, 226);
@@ -8,5 +8,35 @@
     top: 0vh;
     box-shadow: 5px 5px 5px;
     z-index: 1;
-    
+}
+.firstHr{
+    margin: 0 auto;
+    margin-top: 12vh;
+    width: clamp(260px, 24vw, 900px);
+    margin-bottom: 3vh;
+}
+.secondHr{
+    margin: 0 auto;
+    margin-top: 6vh;
+    width: clamp(260px, 24vw, 900px);
+    margin-bottom: 3vh;
+}
+.link{
+    font-family: 'Cinzel', serif;
+    text-decoration:underline 1px  black;
+    color: black;
+}
+.firstUl{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-size: calc(20px + 0.3vw);
+}
+.firstLi{
+    margin-left: clamp(20px, 2vw, 50px);
+}
+.secondLi{
+    font-size: calc(10px + 0.3vw);
+    margin-left: clamp(20px, 2vw, 50px);
 }
