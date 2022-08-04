@@ -68,9 +68,10 @@ const Footer = () => {
               <span className={Styles.mail}> {mailP}</span>
             </p>
             <p>
+              {" "}
               Best regards/ <br />
-              The New Dorker
             </p>
+            <p className={Styles.subscribeTitle}>The New Dorker</p>
           </div>
         ) : null}
       </div>

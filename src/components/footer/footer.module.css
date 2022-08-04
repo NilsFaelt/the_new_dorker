@@ -10,6 +10,10 @@
     border-top: 1px solid black;
 }
 .divOne{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    text-align: center;
     width: auto;
 }
 .divTwo{
@@ -58,4 +62,7 @@
 .mail{
   font-weight: bold;
   font-family:'Times New Roman', Times, serif;
+}
+.subscribeTitle{
+    text-decoration: underline 1px teal;
 }

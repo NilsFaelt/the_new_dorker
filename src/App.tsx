@@ -11,7 +11,7 @@ import "./index.css";
 
 function App() {
   const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
-  const [city, setCity] = useState<string>("miami");
+  const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<any | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
