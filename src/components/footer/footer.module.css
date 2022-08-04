@@ -13,10 +13,14 @@
     width: auto;
 }
 .divTwo{
+    font-size: calc(6px + 0.4vw);
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
     width: auto;
+    text-decoration: underline;
 }
 .divThree{
-    margin-right: 2vw;
     width: auto;
 }
 .title{
