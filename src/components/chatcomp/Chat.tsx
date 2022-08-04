@@ -34,7 +34,11 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
       <XIcon onClick={() => setToogleChat(false)} className={Styles.xIcon} />
       <div className={Styles.textOutput}>
         {sentMessage.map((message) => {
-          return <p className={Styles.text}>{message}</p>;
+          return (
+            <p key={message} className={Styles.text}>
+              {message}
+            </p>
+          );
         })}
         {startTexting ? <p>Corespondant writing...</p> : null}
       </div>
