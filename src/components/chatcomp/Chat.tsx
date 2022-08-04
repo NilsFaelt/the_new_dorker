@@ -9,19 +9,22 @@ interface Props {
 const Chat: React.FC<Props> = ({ setToogleChat }) => {
   const [startTexting, setstartTexting] = useState(false);
   const [sentMessage, setsentMessage] = useState<string[]>([
-    "Hello how can i help you ?",
+    "Correspondant: Hello how can i help you ?",
   ]);
   const [message, setMessage] = useState<string>("");
   const handleClick = (e: FormEvent) => {
     e.preventDefault();
-    setsentMessage([...sentMessage, message]);
+    setsentMessage([...sentMessage, "Me: " + message]);
     setstartTexting(true);
     setMessage("");
   };
 
   if (startTexting) {
     setTimeout(() => {
-      setsentMessage([...sentMessage, "Sorry i didnt understand you question"]);
+      setsentMessage([
+        ...sentMessage,
+        "Correspondant: Sorry i didnt understand you question",
+      ]);
       setstartTexting(false);
     }, 3500);
   }
