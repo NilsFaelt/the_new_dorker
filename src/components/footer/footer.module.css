@@ -42,4 +42,20 @@
 .input{
     font-size: calc(12px + 0.2vw);
     margin-top: 0.5vh;
+    width: clamp(100px, 10vw, 300px);
+}
+.confirmSubscribe{
+    position: absolute;
+    right: 5vw;
+    top: 60vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2vw;
+    box-shadow: 5px 5px 5px;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+}
+.mail{
+  font-weight: bold;
+  font-family:'Times New Roman', Times, serif;
 }
