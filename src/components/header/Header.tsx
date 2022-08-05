@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import BurgerMenu from "../menus/burger/BurgerMenu";
 import { useState } from "react";
 import Login from "../login/Login";
+import CreateAccount from "../login/createAccount/CreateAccount";
 
 interface Condition {
   text: string;
@@ -27,6 +28,8 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const date = getDate();
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
   const [toogleLogin, setToogleLogin] = useState<boolean>(false);
+  const [toogleCreateAccount, setToogleCreateAccount] =
+    useState<boolean>(false);
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
   };
@@ -40,7 +43,18 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
       <Link className={Styles.link} to={"/"}>
         <h1 className={Styles.title}>The New Dorker</h1>
       </Link>
-      {toogleLogin ? <Login setToogleLogin={setToogleLogin} /> : null}
+      {toogleLogin ? (
+        <Login
+          setToogleLogin={setToogleLogin}
+          setToogleCreateAccount={setToogleCreateAccount}
+        />
+      ) : null}
+      {toogleCreateAccount ? (
+        <CreateAccount
+          setToogleLogin={setToogleLogin}
+          setToogleCreateAccount={setToogleCreateAccount}
+        />
+      ) : null}
 
       <div className={Styles.weatherDiv}>
         <div>

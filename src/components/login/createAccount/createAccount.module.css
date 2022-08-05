@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: clamp(340px, 30vw, 500px);
+    height: auto;
+    border: 1px solid black;
+    padding: 2vw;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px;
+    background-color: rgb(226, 226, 226);
+    position: absolute;
+    right:clamp(10px, 5vw, 100px);
+    top: 12vh;
+}
+.form{
+    margin-top: 1vh;
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: column;
+}
+.createAccount{
+    font-family: 'Cinzel', serif;
+    font-size: calc(8px + 0.3vw);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+}
+.input{
+    margin-bottom: 1.5vh;
+    width: clamp(70px, 45vw, 250px);
+    height: 2.5vh;
+}
+.xIcon{
+    width: clamp(20px, 2vw, 100px);
+    position: absolute;
+    left: clamp(10px, 2vw, 10px);
+    top: 1vh;
+    cursor: pointer;
+}
