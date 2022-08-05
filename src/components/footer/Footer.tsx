@@ -21,19 +21,22 @@ const Footer = () => {
           Dorker
         </h2>
       </div>
-      <div className={Styles.divTwo}>
-        <div>
-          <p>About</p>
-          <p>Contact</p>
-          <p>Chat</p>
-          <p>Share</p>
+      <div>
+        <div className={Styles.divTwo}>
+          <div>
+            <p>About</p>
+            <p>Contact</p>
+            <p>Chat</p>
+            <p>Share</p>
+          </div>
+          <div>
+            <p>News</p>
+            <p>Weather</p>
+            <p>Finnance</p>
+            <p>Sport</p>
+          </div>
         </div>
-        <div>
-          <p>News</p>
-          <p>Weather</p>
-          <p>Finnance</p>
-          <p>Sport</p>
-        </div>
+        <p className={Styles.copy}>Copywright ® 2022</p>
       </div>
       <div className={Styles.divThree}>
         <form

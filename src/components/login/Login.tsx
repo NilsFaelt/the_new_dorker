@@ -1,8 +1,14 @@
 import Styles from "./login.module.css";
+import { XIcon } from "@heroicons/react/solid";
 
-const Login = () => {
+interface Props {
+  setToogleLogin: (toogle: boolean) => void;
+}
+
+const Login: React.FC<Props> = ({ setToogleLogin }) => {
   return (
     <div className={Styles.container}>
+      <XIcon onClick={() => setToogleLogin(false)} className={Styles.xIcon} />
       <form className={Styles.form} action=''>
         <label htmlFor=''>Username:</label>
         <input className={Styles.input} type='text' placeholder='Username' />

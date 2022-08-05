@@ -66,3 +66,8 @@
 .subscribeTitle{
     text-decoration: underline 1px teal;
 }
+.copy{
+    margin-top: 2vh;
+    text-align: center;
+    font-size: calc(8px + 0.4vw);
+}

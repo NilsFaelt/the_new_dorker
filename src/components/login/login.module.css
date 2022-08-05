@@ -33,3 +33,10 @@
     width: clamp(70px, 45vw, 250px);
     height: 2.5vh;
 }
+.xIcon{
+    width: clamp(20px, 2vw, 100px);
+    position: absolute;
+    left: clamp(10px, 2vw, 10px);
+    top: 1vh;
+    cursor: pointer;
+}

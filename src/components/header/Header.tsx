@@ -25,8 +25,8 @@ interface Props {
 
 const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const date = getDate();
-  const [toogleMenu, setToogleMenu] = useState(false);
-  const [toogleLogin, setToogleLogin] = useState(false);
+  const [toogleMenu, setToogleMenu] = useState<boolean>(false);
+  const [toogleLogin, setToogleLogin] = useState<boolean>(false);
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
   };
@@ -40,7 +40,7 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
       <Link className={Styles.link} to={"/"}>
         <h1 className={Styles.title}>The New Dorker</h1>
       </Link>
-      {toogleLogin ? <Login /> : null}
+      {toogleLogin ? <Login setToogleLogin={setToogleLogin} /> : null}
 
       <div className={Styles.weatherDiv}>
         <div>
