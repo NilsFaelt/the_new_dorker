@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Chat from "./components/chatcomp/Chat";
 import Footer from "./components/footer/Footer";
@@ -15,7 +15,6 @@ function App() {
   const [weather, setWeather] = useState<any | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
-  console.log(city);
 
   const fetchWeather = async () => {
     try {

@@ -1,7 +1,9 @@
 import { FormEvent, useState } from "react";
 import Styles from "./footer.module.css";
 
-const Footer = () => {
+interface Props {}
+
+const Footer: React.FC<Props> = ({}) => {
   const [subcribe, setSubscribe] = useState<boolean>(false);
   const [mail, setMail] = useState<string>("");
   const [mailP, setMailP] = useState<string>("");
