@@ -33,13 +33,20 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
   };
+  const toogleLoginOnClick = () => {
+    setToogleLogin(true);
+    if (toogleLogin) {
+      setToogleLogin(false);
+    }
+    if (!toogleLogin && toogleCreateAccount) {
+      setToogleLogin(false);
+      setToogleCreateAccount(false);
+    }
+  };
   return (
     <header className={Styles.container}>
       <MenuIcon onClick={() => toogleMenuOnClick()} className={Styles.burger} />
-      <UserIcon
-        onClick={() => setToogleLogin(!toogleLogin)}
-        className={Styles.user}
-      />
+      <UserIcon onClick={() => toogleLoginOnClick()} className={Styles.user} />
       <Link className={Styles.link} to={"/"}>
         <h1 className={Styles.title}>The New Dorker</h1>
       </Link>
