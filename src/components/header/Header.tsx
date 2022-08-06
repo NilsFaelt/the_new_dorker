@@ -7,6 +7,8 @@ import BurgerMenu from "../menus/burger/BurgerMenu";
 import { useState } from "react";
 import Login from "../login/Login";
 import CreateAccount from "../login/createAccount/CreateAccount";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase-config";
 
 interface Condition {
   text: string;
@@ -33,6 +35,7 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
   };
+
   const toogleLoginOnClick = () => {
     setToogleLogin(true);
     if (toogleLogin) {

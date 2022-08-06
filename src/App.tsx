@@ -27,9 +27,9 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   fetchWeather();
-  // }, [city]);
+  useEffect(() => {
+    fetchWeather();
+  }, [city]);
 
   return (
     <div className='App'>
@@ -50,4 +50,5 @@ function App() {
   );
 }
 
+//dotenv firebase api
 export default App;

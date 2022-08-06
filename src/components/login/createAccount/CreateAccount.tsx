@@ -1,6 +1,8 @@
 import Styles from "./createAccount.module.css";
 import { XIcon } from "@heroicons/react/solid";
-import { useEffect, useRef } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase-config";
 
 interface Props {
   setToogleLogin: (toogle: boolean) => void;
@@ -11,6 +13,11 @@ const CreateAccount: React.FC<Props> = ({
   setToogleCreateAccount,
   setToogleLogin,
 }) => {
+  const [email, setEmail] = useState<string>("");
+  const [confirmEmail, setConfirmEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     inputRef.current?.focus();
@@ -19,6 +26,37 @@ const CreateAccount: React.FC<Props> = ({
   const toggleToLogin = () => {
     setToogleLogin(true);
     setToogleCreateAccount(false);
+  };
+
+  const register = async (e: FormEvent) => {
+    e.preventDefault();
+    if (
+      email === confirmEmail &&
+      password === confirmPassword &&
+      password.length > 5 &&
+      password.length < 15
+    ) {
+      setToogleCreateAccount(false);
+      setToogleLogin(false);
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log(user);
+      } catch (err) {
+        console.log("error in creteuser", err);
+      }
+      setEmail("");
+      setConfirmEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    } else {
+      alert(
+        "make sure email and password is correct, password have to be a minimun of 6 characters and maximun of 14 characters"
+      );
+    }
   };
   return (
     <div className={Styles.container}>
@@ -29,18 +67,44 @@ const CreateAccount: React.FC<Props> = ({
       <form className={Styles.form} action=''>
         <label htmlFor=''>Email:</label>
         <input
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           ref={inputRef}
           className={Styles.input}
-          type='text'
-          placeholder='Username'
+          type='email'
+          placeholder='Email'
         />
         <label htmlFor=''>Confirm Email:</label>
-        <input className={Styles.input} type='text' placeholder='Username' />
+        <input
+          required
+          value={confirmEmail}
+          className={Styles.input}
+          type='email'
+          placeholder='Confirm Email'
+          onChange={(e) => setConfirmEmail(e.target.value)}
+        />
         <label htmlFor=''>Password</label>
-        <input className={Styles.input} type='text' placeholder='Password' />
+        <input
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={Styles.input}
+          type='password'
+          placeholder='Password'
+          minLength={6}
+        />
         <label htmlFor=''>Confirm Password:</label>
-        <input className={Styles.input} type='text' placeholder='Password' />
-        <button>Create Account</button>
+        <input
+          required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className={Styles.input}
+          type='password'
+          placeholder='Confirm Password'
+          minLength={6}
+        />
+        <button onClick={(e) => register(e)}>Create Account</button>
       </form>
       <p onClick={() => toggleToLogin()} className={Styles.createAccount}>
         {" "}

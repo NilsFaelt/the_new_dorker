@@ -63,7 +63,7 @@ const Footer: React.FC<Props> = ({}) => {
           </button>
         </form>
         {subcribe ? (
-          <div 
+          <div
             onClick={() => setSubscribe(false)}
             className={Styles.confirmSubscribe}
           >
