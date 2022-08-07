@@ -27,9 +27,9 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchWeather();
-  }, [city]);
+  // useEffect(() => {
+  //   fetchWeather();
+  // }, [city]);
 
   return (
     <div className='App'>

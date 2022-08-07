@@ -7,10 +7,16 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 interface Props {
   setToogleLogin: (toogle: boolean) => void;
   setToogleCreateAccount: (toogle: boolean) => void;
+  loggedIn: string | null;
+  setLoggedin: (loggedIn: string | null) => void;
 }
 
-const Login: React.FC<Props> = ({ setToogleLogin, setToogleCreateAccount }) => {
-  const [loggedIn, setLoggedin] = useState<string | null>(null);
+const Login: React.FC<Props> = ({
+  setToogleLogin,
+  setToogleCreateAccount,
+  loggedIn,
+  setLoggedin,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
