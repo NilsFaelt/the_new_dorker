@@ -68,6 +68,7 @@ const CreateAccount: React.FC<Props> = ({
       />
       {accountCreated ? (
         <form className={Styles.form} action=''>
+          <h4>The New Dorker</h4>
           <label htmlFor=''>Email:</label>
           <input
             required

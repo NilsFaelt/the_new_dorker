@@ -2,9 +2,11 @@ import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import Styles from "./footer.module.css";
 
-interface Props {}
+interface Props {
+  setToogleChat: (toogle: boolean) => void;
+}
 
-const Footer: React.FC<Props> = ({}) => {
+const Footer: React.FC<Props> = ({ setToogleChat }) => {
   const [subcribe, setSubscribe] = useState<boolean>(false);
   const [mail, setMail] = useState<string>("");
   const [mailP, setMailP] = useState<string>("");
@@ -31,14 +33,25 @@ const Footer: React.FC<Props> = ({}) => {
           <div>
             <p>About</p>
             <p>Contact</p>
-            <p>Chat</p>
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => setToogleChat(true)}
+            >
+              Chat
+            </p>
             <p>Share</p>
           </div>
           <div>
-            <p>News</p>
+            <Link className={Styles.link} to={"/"}>
+              <p>News</p>
+            </Link>
             <p>Weather</p>
-            <p>Finnance</p>
-            <p>Sport</p>
+            <Link className={Styles.link} to={"/finnance"}>
+              <p>Finnance</p>
+            </Link>
+            <Link className={Styles.link} to={"/sports"}>
+              <p>Sport</p>
+            </Link>
           </div>
         </div>
         <p className={Styles.copy}>Copywright ® 2022</p>

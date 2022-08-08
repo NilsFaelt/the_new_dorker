@@ -4,8 +4,14 @@ import Styles from "./burgerMenu.module.css";
 
 interface Props {
   setToogleChat: (toogle: boolean) => void;
+  setToogleWetaher: (toogle: boolean) => void;
+  setToogleLogin: (toogle: boolean) => void;
 }
-const BurgerMenu: React.FC<Props> = ({ setToogleChat }) => {
+const BurgerMenu: React.FC<Props> = ({
+  setToogleChat,
+  setToogleWetaher,
+  setToogleLogin,
+}) => {
   return (
     <nav className={Styles.container}>
       <ul className={Styles.firstUl}>
@@ -13,25 +19,23 @@ const BurgerMenu: React.FC<Props> = ({ setToogleChat }) => {
         <Link className={Styles.link} to={"/"}>
           <li className={Styles.firstLi}>News</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"/sports"}>
           <li className={Styles.firstLi}>Sports</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
-          <li className={Styles.firstLi}>Weather</li>
-        </Link>
-        <Link className={Styles.link} to={"/"}>
+
+        <li onClick={() => setToogleWetaher(true)} className={Styles.firstLi}>
+          Weather
+        </li>
+
+        <Link className={Styles.link} to={"/finnance"}>
           <li className={Styles.firstLi}>Finnance</li>
         </Link>
       </ul>
       <hr className={Styles.secondHr} />
       <ul className={Styles.firstUl}>
-        <Link
-          onClick={() => setToogleChat(true)}
-          className={Styles.link}
-          to={"/"}
-        >
-          <li className={Styles.secondLi}>Chat</li>
-        </Link>
+        <li onClick={() => setToogleChat(true)} className={Styles.secondLi}>
+          Chat
+        </li>
         <Link className={Styles.link} to={"/"}>
           <li className={Styles.secondLi}>Contact</li>
         </Link>
@@ -50,9 +54,10 @@ const BurgerMenu: React.FC<Props> = ({ setToogleChat }) => {
         <Link className={Styles.link} to={"/"}>
           <li className={Styles.secondLi}>Subscribe</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
-          <li className={Styles.secondLi}>Login/Create Account</li>
-        </Link>
+
+        <li onClick={() => setToogleLogin(true)} className={Styles.secondLi}>
+          Login/Create Account
+        </li>
       </ul>
     </nav>
   );

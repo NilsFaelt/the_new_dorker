@@ -24,9 +24,15 @@ interface Props {
   weather: Weather;
   city: string;
   setToogleChat: (toogle: boolean) => void;
+  setToogleWetaher: (toogle: boolean) => void;
 }
 
-const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
+const Header: React.FC<Props> = ({
+  weather,
+  city,
+  setToogleChat,
+  setToogleWetaher,
+}) => {
   const date = getDate();
   const [loggedIn, setLoggedin] = useState<string | null>(null);
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
@@ -56,7 +62,7 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
       />
       {toogleMenu ? (
         <div
-          onClick={toogleMenuOnClick}
+          onMouseOver={toogleMenuOnClick}
           className={Styles.closeMenuOnOutsideClick}
         ></div>
       ) : null}
@@ -89,7 +95,13 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
         <img className={Styles.logo} src={weather?.condition.icon} alt='' />
       </div>
       <p className={Styles.date}> Date: {date}</p>
-      {toogleMenu ? <BurgerMenu setToogleChat={setToogleChat} /> : null}
+      {toogleMenu ? (
+        <BurgerMenu
+          setToogleLogin={setToogleLogin}
+          setToogleWetaher={setToogleWetaher}
+          setToogleChat={setToogleChat}
+        />
+      ) : null}
     </header>
   );
 };

@@ -19,3 +19,12 @@ button{
     align-self: center;
     border-radius: 5px;
 }
+h4{
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    font-size: calc(10px + 0.4vw);
+    text-decoration: underline teal 1px;
+    font-family: 'Cinzel', serif;
+    color: black;
+    text-align: center;
+}

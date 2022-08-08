@@ -66,6 +66,7 @@ const Login: React.FC<Props> = ({
       <XIcon onClick={() => setToogleLogin(false)} className={Styles.xIcon} />
       {!loggedIn ? (
         <form onSubmit={login} className={Styles.form} action=''>
+          <h4>The New Dorker</h4>
           <label htmlFor=''>Username/Email:</label>
           <input
             value={email}

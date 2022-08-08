@@ -12,7 +12,7 @@ const Menu: React.FC<Props> = ({ setToogleWetaher }) => {
         <Link className={Styles.link} to={"/"}>
           <li>News</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"/sports"}>
           <li>Sports</li>
         </Link>
         <Link
@@ -22,7 +22,7 @@ const Menu: React.FC<Props> = ({ setToogleWetaher }) => {
         >
           <li>Weather</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"finnance"}>
           <li>Finnance</li>
         </Link>
       </ul>

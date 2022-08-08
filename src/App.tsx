@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Chat from "./components/chatcomp/Chat";
+import Finnance from "./components/finnance/Finnance";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
 import News from "./components/news/News";
+import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
 import "./index.css";
 // import "dotenv/config";
@@ -47,10 +49,17 @@ function App() {
 
   return (
     <div className='App'>
-      <Header setToogleChat={setToogleChat} weather={weather} city={city} />
+      <Header
+        setToogleWetaher={setToogleWetaher}
+        setToogleChat={setToogleChat}
+        weather={weather}
+        city={city}
+      />
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes>
         <Route path='/' element={<News />} />
+        <Route path='/sports' element={<Sports />} />
+        <Route path='/finnance' element={<Finnance />} />
       </Routes>
       {tooglWeather ? (
         <Weather
@@ -61,7 +70,7 @@ function App() {
         />
       ) : null}
       {tooglChat ? <Chat setToogleChat={setToogleChat} /> : null}
-      <Footer />
+      <Footer setToogleChat={setToogleChat} />
     </div>
   );
 }
@@ -72,7 +81,6 @@ function App() {
 // about
 //contact
 // all links footer menu header
-// account verification
 // a0dcbd0f6a23420eb6d0e9f9adf81dde  news api key
 // fix key chat
 export default App;
