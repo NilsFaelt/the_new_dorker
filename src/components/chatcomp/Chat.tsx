@@ -1,12 +1,16 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Styles from "./chat.module.css";
 import { XIcon } from "@heroicons/react/solid";
+import { auth } from "../../firebase-config";
 
 interface Props {
   setToogleChat: (toogle: boolean) => void;
 }
 
 const Chat: React.FC<Props> = ({ setToogleChat }) => {
+  const [userEmail, setUserEmail] = useState(
+    auth.currentUser?.email ? auth.currentUser?.email : "me"
+  );
   const [startTexting, setstartTexting] = useState(false);
   const [sentMessage, setsentMessage] = useState<string[]>([
     "Correspondant: Hello how can i help you ?",
@@ -14,7 +18,7 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
   const [message, setMessage] = useState<string>("");
   const handleClick = (e: FormEvent) => {
     e.preventDefault();
-    setsentMessage([...sentMessage, "Me: " + message]);
+    setsentMessage([...sentMessage, userEmail + ": " + message]);
     setstartTexting(true);
     setMessage("");
   };
@@ -29,6 +33,11 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
     }, 3500);
   }
 
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   return (
     <div className={Styles.container}>
       <XIcon onClick={() => setToogleChat(false)} className={Styles.xIcon} />
@@ -42,14 +51,16 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
         })}
         {startTexting ? <p>Corespondant writing...</p> : null}
       </div>
-      <form className={Styles.form}>
+      <form onSubmit={(e) => handleClick(e)} className={Styles.form}>
         <input
+          ref={inputRef}
+          required
           placeholder='Text Message'
           onChange={(e) => setMessage(e.target.value)}
           type='text'
           value={message}
         />
-        <button onClick={(e) => handleClick(e)}>Send</button>
+        <button>Send</button>
       </form>
     </div>
   );
