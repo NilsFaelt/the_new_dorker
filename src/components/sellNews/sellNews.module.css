@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4vh;
+    padding-top: 2vh;
+    width: clamp(350px, 70vw, 90vw);
+    height: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px;
+    font-family: 'Cinzel', serif;
+    font-size: calc(10px + 0.4vw);
+}
+.text{
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: calc(10px + 0.4vw);
+    font-family: 'Cinzel', serif;
+}
+.textAndPicWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.textArea{ 
+    width: clamp(250px, 30vw, 40vw);
+    height: 20vh;
+}
+.fileUpload{
+   width: clamp(180px, 10vw, 20vw);
+   margin-top: 2vh;
+}
+.input{
+    width: clamp(200px, 30vw, 60vw);
+
+}
+.label{
+    font-family: 'Cinzel', serif;
+    font-size: calc(10px + 0.4vw);
+    margin-top: 3vh;
+}

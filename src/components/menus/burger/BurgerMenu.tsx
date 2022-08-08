@@ -31,11 +31,9 @@ const BurgerMenu: React.FC<Props> = ({
         <Link className={Styles.link} to={"/sports"}>
           <li className={Styles.firstLi}>Sports</li>
         </Link>
-
         <li onClick={() => setToogleWetaher(true)} className={Styles.firstLi}>
           Weather
         </li>
-
         <Link className={Styles.link} to={"/finnance"}>
           <li className={Styles.firstLi}>Finnance</li>
         </Link>
@@ -55,7 +53,7 @@ const BurgerMenu: React.FC<Props> = ({
           <li className={Styles.secondLi}>Work With Us</li>
         </Link>
         <Link className={Styles.link} to={"/"}>
-          <li className={Styles.secondLi}>Share</li>
+          <li className={Styles.secondLi}>Sell your stories/news</li>
         </Link>
       </ul>
       <hr className={Styles.secondHr} />

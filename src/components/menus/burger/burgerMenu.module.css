@@ -43,6 +43,7 @@
     margin-left: clamp(20px, 2vw, 50px);
     cursor: pointer;
 }
+
 .secondLi{
     font-size: calc(10px + 0.3vw);
     margin-left: clamp(20px, 2vw, 50px);

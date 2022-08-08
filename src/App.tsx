@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
 import News from "./components/news/News";
+import SellNews from "./components/sellNews/SellNews";
 import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
 import "./index.css";
@@ -62,6 +63,7 @@ function App() {
         <Route path='/' element={<News />} />
         <Route path='/sports' element={<Sports />} />
         <Route path='/finnance' element={<Finnance />} />
+        <Route path='/sellnews' element={<SellNews />} />
       </Routes>
       {tooglWeather ? (
         <Weather

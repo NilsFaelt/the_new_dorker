@@ -45,7 +45,9 @@ const Footer: React.FC<Props> = ({
             >
               Chat
             </p>
-            <p>Share</p>
+            <Link to={"/sellnews"} className={Styles.link}>
+              <p>Sell your stories</p>
+            </Link>
           </div>
           <div>
             <Link className={Styles.link} to={"/"}>
