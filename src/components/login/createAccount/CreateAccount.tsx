@@ -13,6 +13,7 @@ const CreateAccount: React.FC<Props> = ({
   setToogleCreateAccount,
   setToogleLogin,
 }) => {
+  const [accountCreated, setAccountCreated] = useState<boolean>(true);
   const [email, setEmail] = useState<string>("");
   const [confirmEmail, setConfirmEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -36,8 +37,8 @@ const CreateAccount: React.FC<Props> = ({
       password.length > 5 &&
       password.length < 15
     ) {
-      setToogleCreateAccount(false);
-      setToogleLogin(true);
+      setToogleCreateAccount(true);
+      setToogleLogin(false);
       try {
         const user = await createUserWithEmailAndPassword(
           auth,
@@ -52,6 +53,7 @@ const CreateAccount: React.FC<Props> = ({
       setConfirmEmail("");
       setPassword("");
       setConfirmPassword("");
+      setAccountCreated(false);
     } else {
       alert(
         "make sure email and password is correct, password have to be a minimun of 6 characters and maximun of 14 characters"
@@ -64,48 +66,55 @@ const CreateAccount: React.FC<Props> = ({
         onClick={() => setToogleCreateAccount(false)}
         className={Styles.xIcon}
       />
-      <form className={Styles.form} action=''>
-        <label htmlFor=''>Email:</label>
-        <input
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          ref={inputRef}
-          className={Styles.input}
-          type='email'
-          placeholder='Email'
-        />
-        <label htmlFor=''>Confirm Email:</label>
-        <input
-          required
-          value={confirmEmail}
-          className={Styles.input}
-          type='email'
-          placeholder='Confirm Email'
-          onChange={(e) => setConfirmEmail(e.target.value)}
-        />
-        <label htmlFor=''>Password</label>
-        <input
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={Styles.input}
-          type='password'
-          placeholder='Password'
-          minLength={6}
-        />
-        <label htmlFor=''>Confirm Password:</label>
-        <input
-          required
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          className={Styles.input}
-          type='password'
-          placeholder='Confirm Password'
-          minLength={6}
-        />
-        <button onClick={(e) => register(e)}>Create Account</button>
-      </form>
+      {accountCreated ? (
+        <form className={Styles.form} action=''>
+          <label htmlFor=''>Email:</label>
+          <input
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            ref={inputRef}
+            className={Styles.input}
+            type='email'
+            placeholder='Email'
+          />
+          <label htmlFor=''>Confirm Email:</label>
+          <input
+            required
+            value={confirmEmail}
+            className={Styles.input}
+            type='email'
+            placeholder='Confirm Email'
+            onChange={(e) => setConfirmEmail(e.target.value)}
+          />
+          <label htmlFor=''>Password</label>
+          <input
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={Styles.input}
+            type='password'
+            placeholder='Password'
+            minLength={6}
+          />
+          <label htmlFor=''>Confirm Password:</label>
+          <input
+            required
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className={Styles.input}
+            type='password'
+            placeholder='Confirm Password'
+            minLength={6}
+          />
+          <button onClick={(e) => register(e)}>Create Account</button>
+        </form>
+      ) : (
+        <p className={Styles.accountCreated}>
+          Account created succesfully <br />
+          Welcome To The New Dorker
+        </p>
+      )}
       <p onClick={() => toggleToLogin()} className={Styles.createAccount}>
         {" "}
         Login?
