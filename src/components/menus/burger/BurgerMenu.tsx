@@ -52,7 +52,7 @@ const BurgerMenu: React.FC<Props> = ({
         <Link className={Styles.link} to={"/"}>
           <li className={Styles.secondLi}>Work With Us</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"/sellnews"}>
           <li className={Styles.secondLi}>Sell your stories/news</li>
         </Link>
       </ul>
