@@ -5,16 +5,30 @@ import Chat from "./components/chatcomp/Chat";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
+import News from "./components/news/News";
 import Weather from "./components/weather/Weather";
 import "./index.css";
 // import "dotenv/config";
 
 function App() {
   const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
+  const NEWS_API_KEY = "a0dcbd0f6a23420eb6d0e9f9adf81dde";
   const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<any | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
+
+  const fetchNews = async () => {
+    try {
+      const response = await axios.get(
+        `https://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(`Something went wrong in fetch news, ${err}`);
+    }
+  };
+  // fetchNews();
 
   const fetchWeather = async () => {
     try {
@@ -35,7 +49,9 @@ function App() {
     <div className='App'>
       <Header setToogleChat={setToogleChat} weather={weather} city={city} />
       <Menu setToogleWetaher={setToogleWetaher} />
-      <Routes></Routes>
+      <Routes>
+        <Route path='/' element={<News />} />
+      </Routes>
       {tooglWeather ? (
         <Weather
           weather={weather}
@@ -51,4 +67,12 @@ function App() {
 }
 
 //dotenv firebase api
+//news api
+//news search function
+// about
+//contact
+// all links footer menu header
+// account verification
+// a0dcbd0f6a23420eb6d0e9f9adf81dde  news api key
+// fix key chat
 export default App;

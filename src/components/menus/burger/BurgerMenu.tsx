@@ -51,7 +51,7 @@ const BurgerMenu: React.FC<Props> = ({ setToogleChat }) => {
           <li className={Styles.secondLi}>Subscribe</li>
         </Link>
         <Link className={Styles.link} to={"/"}>
-          <li className={Styles.secondLi}>Recive Newsletter</li>
+          <li className={Styles.secondLi}>Login/Create Account</li>
         </Link>
       </ul>
     </nav>

@@ -72,3 +72,6 @@
     text-align: center;
     font-size: calc(8px + 0.4vw);
 }
+.link{
+    text-decoration: none;
+}

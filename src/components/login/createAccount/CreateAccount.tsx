@@ -37,7 +37,7 @@ const CreateAccount: React.FC<Props> = ({
       password.length < 15
     ) {
       setToogleCreateAccount(false);
-      setToogleLogin(false);
+      setToogleLogin(true);
       try {
         const user = await createUserWithEmailAndPassword(
           auth,

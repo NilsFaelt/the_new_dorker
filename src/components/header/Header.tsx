@@ -28,7 +28,6 @@ interface Props {
 
 const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
   const date = getDate();
-
   const [loggedIn, setLoggedin] = useState<string | null>(null);
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
   const [toogleLogin, setToogleLogin] = useState<boolean>(false);

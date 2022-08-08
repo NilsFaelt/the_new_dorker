@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import Styles from "./footer.module.css";
 
 interface Props {}
@@ -17,11 +18,13 @@ const Footer: React.FC<Props> = ({}) => {
   return (
     <footer className={Styles.container}>
       <div className={Styles.divOne}>
-        <h2 className={Styles.title}>
-          The <br />
-          New <br />
-          Dorker
-        </h2>
+        <Link className={Styles.link} to={"/"}>
+          <h2 className={Styles.title}>
+            The <br />
+            New <br />
+            Dorker
+          </h2>
+        </Link>
       </div>
       <div>
         <div className={Styles.divTwo}>
