@@ -4,10 +4,15 @@ import Styles from "./footer.module.css";
 
 interface Props {
   setToogleChat: (toogle: boolean) => void;
+  setToogleWetaher: (toogle: boolean) => void;
   subscribeRef: any;
 }
 
-const Footer: React.FC<Props> = ({ setToogleChat, subscribeRef }) => {
+const Footer: React.FC<Props> = ({
+  setToogleChat,
+  subscribeRef,
+  setToogleWetaher,
+}) => {
   const [subcribe, setSubscribe] = useState<boolean>(false);
   const [mail, setMail] = useState<string>("");
   const [mailP, setMailP] = useState<string>("");
@@ -46,7 +51,12 @@ const Footer: React.FC<Props> = ({ setToogleChat, subscribeRef }) => {
             <Link className={Styles.link} to={"/"}>
               <p>News</p>
             </Link>
-            <p>Weather</p>
+            <p
+              onClick={() => setToogleWetaher(true)}
+              style={{ cursor: "pointer" }}
+            >
+              Weather
+            </p>
             <Link className={Styles.link} to={"/finnance"}>
               <p>Finnance</p>
             </Link>

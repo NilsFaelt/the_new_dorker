@@ -7,13 +7,20 @@ interface Props {
   setToogleChat: (toogle: boolean) => void;
   setToogleWetaher: (toogle: boolean) => void;
   setToogleLogin: (toogle: boolean) => void;
+  setToogleMenu: (toogle: boolean) => void;
 }
 const BurgerMenu: React.FC<Props> = ({
   setToogleChat,
   setToogleWetaher,
   setToogleLogin,
   subscribeRef,
+  setToogleMenu,
 }) => {
+  const subscribeFocusOnClick = () => {
+    setToogleMenu(false);
+    subscribeRef.current.focus();
+  };
+
   return (
     <nav className={Styles.container}>
       <ul className={Styles.firstUl}>
@@ -55,7 +62,7 @@ const BurgerMenu: React.FC<Props> = ({
       <ul className={Styles.firstUl}>
         <Link className={Styles.link} to={"/"}>
           <li
-            onClick={() => subscribeRef.current.focus()}
+            onClick={() => subscribeFocusOnClick()}
             className={Styles.secondLi}
           >
             Subscribe

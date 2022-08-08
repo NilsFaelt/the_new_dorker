@@ -100,6 +100,7 @@ const Header: React.FC<Props> = ({
       <p className={Styles.date}> Date: {date}</p>
       {toogleMenu ? (
         <BurgerMenu
+          setToogleMenu={setToogleMenu}
           subscribeRef={subscribeRef}
           setToogleLogin={setToogleLogin}
           setToogleWetaher={setToogleWetaher}

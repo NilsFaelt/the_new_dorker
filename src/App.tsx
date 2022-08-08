@@ -72,7 +72,11 @@ function App() {
         />
       ) : null}
       {tooglChat ? <Chat setToogleChat={setToogleChat} /> : null}
-      <Footer subscribeRef={subscribeRef} setToogleChat={setToogleChat} />
+      <Footer
+        setToogleWetaher={setToogleWetaher}
+        subscribeRef={subscribeRef}
+        setToogleChat={setToogleChat}
+      />
     </div>
   );
 }
