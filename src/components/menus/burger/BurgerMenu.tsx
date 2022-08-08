@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Styles from "./burgerMenu.module.css";
 
 interface Props {
+  subscribeRef: any;
   setToogleChat: (toogle: boolean) => void;
   setToogleWetaher: (toogle: boolean) => void;
   setToogleLogin: (toogle: boolean) => void;
@@ -11,6 +12,7 @@ const BurgerMenu: React.FC<Props> = ({
   setToogleChat,
   setToogleWetaher,
   setToogleLogin,
+  subscribeRef,
 }) => {
   return (
     <nav className={Styles.container}>
@@ -52,7 +54,12 @@ const BurgerMenu: React.FC<Props> = ({
       <hr className={Styles.secondHr} />
       <ul className={Styles.firstUl}>
         <Link className={Styles.link} to={"/"}>
-          <li className={Styles.secondLi}>Subscribe</li>
+          <li
+            onClick={() => subscribeRef.current.focus()}
+            className={Styles.secondLi}
+          >
+            Subscribe
+          </li>
         </Link>
 
         <li onClick={() => setToogleLogin(true)} className={Styles.secondLi}>

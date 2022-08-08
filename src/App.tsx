@@ -19,6 +19,7 @@ function App() {
   const [weather, setWeather] = useState<any | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
+  const subscribeRef = useRef<any>(null);
 
   const fetchNews = async () => {
     try {
@@ -54,6 +55,7 @@ function App() {
         setToogleChat={setToogleChat}
         weather={weather}
         city={city}
+        subscribeRef={subscribeRef}
       />
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes>
@@ -70,7 +72,7 @@ function App() {
         />
       ) : null}
       {tooglChat ? <Chat setToogleChat={setToogleChat} /> : null}
-      <Footer setToogleChat={setToogleChat} />
+      <Footer subscribeRef={subscribeRef} setToogleChat={setToogleChat} />
     </div>
   );
 }
@@ -83,4 +85,5 @@ function App() {
 // all links footer menu header
 // a0dcbd0f6a23420eb6d0e9f9adf81dde  news api key
 // fix key chat
+//fix ts for subscribeRef
 export default App;

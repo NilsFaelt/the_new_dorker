@@ -21,6 +21,7 @@ interface Weather {
 }
 
 interface Props {
+  subscribeRef: any;
   weather: Weather;
   city: string;
   setToogleChat: (toogle: boolean) => void;
@@ -32,6 +33,7 @@ const Header: React.FC<Props> = ({
   city,
   setToogleChat,
   setToogleWetaher,
+  subscribeRef,
 }) => {
   const date = getDate();
   const [loggedIn, setLoggedin] = useState<string | null>(null);
@@ -39,6 +41,7 @@ const Header: React.FC<Props> = ({
   const [toogleLogin, setToogleLogin] = useState<boolean>(false);
   const [toogleCreateAccount, setToogleCreateAccount] =
     useState<boolean>(false);
+
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
   };
@@ -97,6 +100,7 @@ const Header: React.FC<Props> = ({
       <p className={Styles.date}> Date: {date}</p>
       {toogleMenu ? (
         <BurgerMenu
+          subscribeRef={subscribeRef}
           setToogleLogin={setToogleLogin}
           setToogleWetaher={setToogleWetaher}
           setToogleChat={setToogleChat}

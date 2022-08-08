@@ -4,9 +4,10 @@ import Styles from "./footer.module.css";
 
 interface Props {
   setToogleChat: (toogle: boolean) => void;
+  subscribeRef: any;
 }
 
-const Footer: React.FC<Props> = ({ setToogleChat }) => {
+const Footer: React.FC<Props> = ({ setToogleChat, subscribeRef }) => {
   const [subcribe, setSubscribe] = useState<boolean>(false);
   const [mail, setMail] = useState<string>("");
   const [mailP, setMailP] = useState<string>("");
@@ -70,6 +71,7 @@ const Footer: React.FC<Props> = ({ setToogleChat }) => {
             required
             type='email'
             placeholder='Email:'
+            ref={subscribeRef}
           />
           <button
             style={{ alignSelf: "auto", marginTop: "0.5vh" }}
