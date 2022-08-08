@@ -10,12 +10,11 @@ import News from "./components/news/News";
 import SellNews from "./components/sellNews/SellNews";
 import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
+import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
+
 import "./index.css";
-// import "dotenv/config";
 
 function App() {
-  const WEATHER_API_KEY = "bc92e385e48e4fcba9b162805220208&q";
-  const NEWS_API_KEY = "a0dcbd0f6a23420eb6d0e9f9adf81dde";
   const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<any | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
