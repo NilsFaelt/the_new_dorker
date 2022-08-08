@@ -55,6 +55,12 @@ const Header: React.FC<Props> = ({ weather, city, setToogleChat }) => {
         onClick={() => toogleLoginOnClick()}
         className={!loggedIn ? Styles.user : Styles.userLogedIn}
       />
+      {toogleMenu ? (
+        <div
+          onClick={toogleMenuOnClick}
+          className={Styles.closeMenuOnOutsideClick}
+        ></div>
+      ) : null}
       {loggedIn ? (
         <p className={Styles.logedInText}>LOGGEDIN AS: {loggedIn}</p>
       ) : null}
