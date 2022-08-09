@@ -49,7 +49,7 @@ function App() {
   const fetchWeather = async () => {
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}=${city}&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}=${city}&aqi=no`
       );
       setWeather(response.data.current);
     } catch (err) {
