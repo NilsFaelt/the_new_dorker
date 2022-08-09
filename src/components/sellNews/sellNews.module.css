@@ -30,8 +30,8 @@
     margin-bottom: 2vh;
 }
 .textArea{ 
-    width: clamp(250px, 30vw, 40vw);
-    height: 20vh;
+    width: clamp(300px, 35vw, 40vw);
+    height: 35vh;
 }
 .fileUpload{
    width: clamp(180px, 10vw, 20vw);
@@ -45,4 +45,29 @@
     font-family: 'Cinzel', serif;
     font-size: calc(10px + 0.4vw);
     margin-top: 3vh;
+}
+.outerDivConfirm{
+    cursor: pointer;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    position: absolute;
+    width: 0vw;
+    height: 100vh;
+   
+}
+.divConfirm{
+    margin: 0 auto;
+    margin-top: 10vh;
+    text-align: center;
+    padding-top: 5vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px;
+    background-color: rgb(255, 255, 255);   
+    font-family: 'Cinzel', serif;
+    font-size: calc(15px + 0.4vw);
+    width: clamp(350px, 50vw, 60vw);
+    height: 15vh;
+
 }
