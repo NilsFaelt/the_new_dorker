@@ -11,7 +11,7 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
   const [userEmail, setUserEmail] = useState(
     auth.currentUser?.email ? auth.currentUser?.email : "me"
   );
-  const [startTexting, setstartTexting] = useState(false);
+  const [startTexting, setstartTexting] = useState<boolean>(false);
   const [sentMessage, setsentMessage] = useState<string[]>([
     "Correspondant: Hello how can i help you ?",
   ]);
