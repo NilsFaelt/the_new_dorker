@@ -5,7 +5,7 @@
     align-items: center;
     margin: 0 auto;
     margin-top: 5vh;
-    width: clamp(350px, 50vw, 70vw);
+    width: clamp(350px, 45vw, 70vw);
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 5px;
