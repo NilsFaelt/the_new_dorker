@@ -1,7 +1,7 @@
 .container{
     position: sticky;
     height: 37vh;
-    top: 52vh;
+    top:20vh;
     left: 70vw;
     margin-right: clamp(30px, 2vw, 100px);
     border: 0.2px solid black;
@@ -10,6 +10,7 @@
     padding: 2vw;
     box-shadow: 5px 5px 5px;
     background-color: rgb(226, 226, 226);
+    z-index: 2;
    
 }
 .textOutput{

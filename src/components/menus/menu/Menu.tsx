@@ -15,13 +15,11 @@ const Menu: React.FC<Props> = ({ setToogleWetaher }) => {
         <Link className={Styles.link} to={"/sports"}>
           <li>Sports</li>
         </Link>
-        <Link
-          onClick={() => setToogleWetaher(true)}
-          className={Styles.link}
-          to={"/weather"}
-        >
-          <li>Weather</li>
-        </Link>
+
+        <li className={Styles.link} onClick={() => setToogleWetaher(true)}>
+          Weather
+        </li>
+
         <Link className={Styles.link} to={"finnance"}>
           <li>Finnance</li>
         </Link>
