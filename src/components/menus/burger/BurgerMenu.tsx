@@ -43,7 +43,7 @@ const BurgerMenu: React.FC<Props> = ({
         <li onClick={() => setToogleChat(true)} className={Styles.secondLi}>
           Chat
         </li>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"/contact"}>
           <li className={Styles.secondLi}>Contact</li>
         </Link>
         <Link className={Styles.link} to={"/about"}>

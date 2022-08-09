@@ -13,6 +13,7 @@ import Weather from "./components/weather/Weather";
 import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
 
 interface Condition {
   text: string;
@@ -81,6 +82,7 @@ function App() {
         <Route path='/finnance' element={<Finnance />} />
         <Route path='/sellnews' element={<SellNews />} />
         <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       {tooglWeather ? (
         <Weather
@@ -102,7 +104,6 @@ function App() {
 //sell news confirmation
 //news api
 //news search function
-// about
 //contact
 // all links footer menu header
 // fix key chat

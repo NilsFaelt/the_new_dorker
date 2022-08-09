@@ -40,7 +40,9 @@ const Footer: React.FC<Props> = ({
             <Link className={Styles.link} to={"/about"}>
               <p>About</p>
             </Link>
-            <p>Contact</p>
+            <Link className={Styles.link} to={"/contact"}>
+              <p>Contact</p>
+            </Link>
             <p
               style={{ cursor: "pointer" }}
               onClick={() => setToogleChat(true)}
