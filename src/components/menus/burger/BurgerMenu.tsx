@@ -46,7 +46,7 @@ const BurgerMenu: React.FC<Props> = ({
         <Link className={Styles.link} to={"/"}>
           <li className={Styles.secondLi}>Contact</li>
         </Link>
-        <Link className={Styles.link} to={"/"}>
+        <Link className={Styles.link} to={"/about"}>
           <li className={Styles.secondLi}>About</li>
         </Link>
         <Link className={Styles.link} to={"/"}>

@@ -22,7 +22,7 @@ interface Weather {
 
 interface Props {
   subscribeRef: any;
-  weather: Weather;
+  weather: Weather | null;
   city: string;
   setToogleChat: (toogle: boolean) => void;
   setToogleWetaher: (toogle: boolean) => void;

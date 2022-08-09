@@ -11,6 +11,7 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
   const [userEmail, setUserEmail] = useState(
     auth.currentUser?.email ? auth.currentUser?.email : "me"
   );
+
   const [startTexting, setstartTexting] = useState<boolean>(false);
   const [sentMessage, setsentMessage] = useState<string[]>([
     "Correspondant: Hello how can i help you ?",
@@ -43,13 +44,11 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
       <XIcon onClick={() => setToogleChat(false)} className={Styles.xIcon} />
       <div className={Styles.textOutput}>
         {sentMessage.map((message) => {
-          return (
-            <p key={message} className={Styles.text}>
-              {message}
-            </p>
-          );
+          return <p className={Styles.text}>{message}</p>;
         })}
-        {startTexting ? <p>Corespondant writing...</p> : null}
+        {startTexting ? (
+          <p style={{ marginTop: "1vh" }}>Corespondant writing...</p>
+        ) : null}
       </div>
       <form onSubmit={(e) => handleClick(e)} className={Styles.form}>
         <input

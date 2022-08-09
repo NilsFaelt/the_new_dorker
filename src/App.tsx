@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Chat from "./components/chatcomp/Chat";
 import Finnance from "./components/finnance/Finnance";
@@ -11,12 +11,25 @@ import SellNews from "./components/sellNews/SellNews";
 import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
 import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
-
 import "./index.css";
+import About from "./components/about/About";
+
+interface Condition {
+  text: string;
+  icon: string;
+}
+interface WeatherApi {
+  condition: Condition;
+  temp_c: number;
+  is_day: number;
+}
+
+interface NewsInterface {}
 
 function App() {
   const [city, setCity] = useState<string>("stockholm");
-  const [weather, setWeather] = useState<any | null>(null);
+  const [weather, setWeather] = useState<WeatherApi | null>(null);
+  const [news, setNews] = useState<NewsInterface | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
   const subscribeRef = useRef<any>(null);
@@ -26,12 +39,12 @@ function App() {
       const response = await axios.get(
         `https://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
       );
+      setNews(response.data);
       console.log(response.data);
     } catch (err) {
       console.log(`Something went wrong in fetch news, ${err}`);
     }
   };
-  // fetchNews();
 
   const fetchWeather = async () => {
     try {
@@ -48,6 +61,10 @@ function App() {
   //   fetchWeather();
   // }, [city]);
 
+  // useEffect(() => {
+  //   fetchNews();
+  // }, []);
+
   return (
     <div className='App'>
       <Header
@@ -63,6 +80,7 @@ function App() {
         <Route path='/sports' element={<Sports />} />
         <Route path='/finnance' element={<Finnance />} />
         <Route path='/sellnews' element={<SellNews />} />
+        <Route path='/about' element={<About />} />
       </Routes>
       {tooglWeather ? (
         <Weather
@@ -81,14 +99,12 @@ function App() {
     </div>
   );
 }
-
-//dotenv firebase api
+//sell news confirmation
 //news api
 //news search function
 // about
 //contact
 // all links footer menu header
-// a0dcbd0f6a23420eb6d0e9f9adf81dde  news api key
 // fix key chat
 //fix ts for subscribeRef
 export default App;

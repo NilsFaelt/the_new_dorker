@@ -37,7 +37,9 @@ const Footer: React.FC<Props> = ({
       <div>
         <div className={Styles.divTwo}>
           <div>
-            <p>About</p>
+            <Link className={Styles.link} to={"/about"}>
+              <p>About</p>
+            </Link>
             <p>Contact</p>
             <p
               style={{ cursor: "pointer" }}

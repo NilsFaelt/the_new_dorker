@@ -15,7 +15,7 @@ interface Weather {
 interface Props {
   setCity: (city: string) => void;
   city: string | null;
-  weather: Weather;
+  weather: Weather | null;
   setToogleWetaher: (change: boolean) => void;
 }
 
