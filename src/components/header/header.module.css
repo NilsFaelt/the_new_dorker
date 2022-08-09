@@ -31,7 +31,7 @@
     height: calc(30px + 1vw);
     width: auto;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
 }
 .burger:hover{
    transform: scale(1.1);
