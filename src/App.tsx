@@ -14,7 +14,7 @@ import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
-import PopUp from "./components/popUp/PopUp";
+import { ChevronDoubleUpIcon } from "@heroicons/react/solid";
 
 interface Condition {
   text: string;
@@ -39,6 +39,13 @@ function App() {
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
   const subscribeRef = useRef<any>(null);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const fetchNews = async () => {
     try {
@@ -98,6 +105,7 @@ function App() {
         />
       ) : null}
       {tooglChat ? <Chat setToogleChat={setToogleChat} /> : null}
+      <ChevronDoubleUpIcon className='arrowUp' onClick={scrollToTop} />
       <Footer
         setToogleWetaher={setToogleWetaher}
         subscribeRef={subscribeRef}
