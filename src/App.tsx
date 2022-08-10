@@ -44,7 +44,7 @@ function App() {
   const fetchNews = async () => {
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
+        `http://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
       );
       setNews(response.data.articles);
     } catch (err) {
