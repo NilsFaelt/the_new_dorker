@@ -3,12 +3,10 @@ import PopUp from "../popUp/PopUp";
 import Styles from "./news.module.css";
 
 interface NewsInterFace {
-  author?: string;
   content: string;
   publishedAt?: string;
   title: string;
-  urlToImage: string;
-  id?: number;
+  image: string;
 }
 interface Props {
   news: NewsInterFace[] | null;
@@ -19,7 +17,7 @@ const News: React.FC<Props> = ({ news }) => {
     <div className={Styles.outerDiv}>
       <div className={Styles.container}>
         {news?.map((news) => (
-          <EachNews news={news} />
+          <EachNews key={news.publishedAt} news={news} />
         ))}
         <PopUp />
       </div>

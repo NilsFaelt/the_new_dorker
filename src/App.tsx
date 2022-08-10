@@ -26,11 +26,10 @@ interface WeatherApi {
   is_day: number;
 }
 interface NewsInterFace {
-  author?: string;
   content: string;
   publishedAt?: string;
   title: string;
-  urlToImage: string;
+  image: string;
 }
 
 function App() {
@@ -44,7 +43,7 @@ function App() {
   const fetchNews = async () => {
     try {
       const response = await axios.get(
-        `http/2://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
+        `https://gnews.io/api/v4/search?q=example&token=${NEWS_API_KEY}`
       );
       setNews(response.data.articles);
     } catch (err) {
