@@ -1,7 +1,7 @@
 .container{
     margin-top: 0vh;
     margin-left: 2vw;
-    width: clamp(130px, 27vw, 27vw);
+    width: auto;
     /* border: 1px solid black; */
     border-radius: 2px;
     padding: 2vw;
