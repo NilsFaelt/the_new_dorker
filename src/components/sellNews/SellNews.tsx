@@ -1,6 +1,7 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Styles from "./sellNews.module.css";
 import emailjs from "emailjs-com";
+import { auth } from "../../firebase-config";
 
 const SellNews = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -10,6 +11,7 @@ const SellNews = () => {
   const [confirmEmail, setConfirmEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [confirm, setConfirm] = useState<boolean>(false);
+  const [myEmail, setMyEmail] = useState<string | null>(null);
 
   const sendEmail = (e: any) => {
     setMailconfirmation(mail);
@@ -35,6 +37,19 @@ const SellNews = () => {
           }
         );
       console.log("sending");
+    }
+  };
+
+  useEffect(() => {
+    if (auth.currentUser?.email) {
+      setMyEmail(auth.currentUser.email);
+    }
+  }, []);
+
+  const prefilMailOnClick = () => {
+    if (myEmail) {
+      setMail(myEmail);
+      setConfirmEmail(myEmail);
     }
   };
 
@@ -69,6 +84,11 @@ const SellNews = () => {
           <input name='file' className={Styles.fileUpload} type='file' />
         </div>
         <div className={Styles.textAndPicWrapper}>
+          {myEmail ? (
+            <p onClick={() => prefilMailOnClick()} className={Styles.useMail}>
+              Use: {myEmail}
+            </p>
+          ) : null}
           <label className={Styles.label} htmlFor=''>
             Email:
           </label>

@@ -48,9 +48,6 @@
 }
 .outerDivConfirm{
     cursor: pointer;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     position: absolute;
     width: 0vw;
     height: 100vh;
@@ -69,5 +66,12 @@
     font-size: calc(15px + 0.4vw);
     width: clamp(350px, 50vw, 60vw);
     height: 15vh;
-
+}
+.useMail{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+   
 }

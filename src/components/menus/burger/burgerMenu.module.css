@@ -43,6 +43,9 @@
     margin-left: clamp(20px, 2vw, 50px);
     cursor: pointer;
 }
+.firstLi:hover{
+    color: rgb(109, 109, 109);
+}
 
 .secondLi{
     font-size: calc(10px + 0.3vw);

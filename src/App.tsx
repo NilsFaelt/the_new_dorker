@@ -101,11 +101,10 @@ function App() {
     </div>
   );
 }
-//sell news confirmation
+
 //news api
 //news search function
-//contact
-// all links footer menu header
 // fix key chat
 //fix ts for subscribeRef
+
 export default App;

@@ -45,3 +45,11 @@
     width: clamp(350px, 60vw, 60vw);
     height: 20vh;
 }
+.useMail{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+   
+}

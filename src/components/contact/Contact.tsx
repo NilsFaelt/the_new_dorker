@@ -1,6 +1,7 @@
 import Styles from "./contact.module.css";
 import emailjs from "emailjs-com";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { auth } from "../../firebase-config";
 
 const Contact = () => {
   const [mail, setMail] = useState<string>("");
@@ -8,7 +9,9 @@ const Contact = () => {
   const [confirmMail, setConfirmMail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [confirm, setConfirm] = useState<boolean>(false);
+  const [myEmail, setMyEmail] = useState<string | null>(null);
 
+  console.log(auth.currentUser?.email, "auth mufker");
   const sendEmail = (e: any) => {
     setMailconfirmation(mail);
     e.preventDefault();
@@ -33,6 +36,19 @@ const Contact = () => {
           }
         );
       console.log("sending");
+    }
+  };
+
+  useEffect(() => {
+    if (auth.currentUser?.email) {
+      setMyEmail(auth.currentUser.email);
+    }
+  }, []);
+
+  const prefilMailOnClick = () => {
+    if (myEmail) {
+      setMail(myEmail);
+      setConfirmMail(myEmail);
     }
   };
 
@@ -64,6 +80,11 @@ const Contact = () => {
           name='message'
           className={Styles.textArea}
         ></textarea>
+        {myEmail ? (
+          <p onClick={() => prefilMailOnClick()} className={Styles.useMail}>
+            Use: {myEmail}
+          </p>
+        ) : null}
         <label htmlFor=''>Email:</label>
         <input
           required
