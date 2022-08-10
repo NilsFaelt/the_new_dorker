@@ -1,0 +1,24 @@
+.container{
+    position: absolute;
+    top: 4vh;
+    right: clamp(170px, 7vw, 7vw);
+    width: 10vw;
+    z-index: 9;
+   
+}
+
+.img{
+    width: clamp(200px, 20vw, 20vw);
+    height: calc(900px, 90vh,100vh);
+    border:1px solid black ;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px;
+}
+.xIcon{
+    width: clamp(20px, 2vw, 100px);
+    position: absolute;
+    left: clamp(10px, 2vw, 10px);
+    top: 1vh;
+    cursor: pointer;
+    color: white;
+}

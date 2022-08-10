@@ -14,6 +14,7 @@ import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
+import PopUp from "./components/popUp/PopUp";
 
 interface Condition {
   text: string;
