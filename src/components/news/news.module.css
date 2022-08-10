@@ -1,5 +1,26 @@
+.outerDiv{
+    width: 100vw;
+    display: flex;
+}
 .container{
-    position: relative;
-    height:min(70vh) ;
-   
+    position: relative;   
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 8vw;
+}
+
+.aside{
+    position: sticky;
+    top: 10vh;
+    margin-left: 7vw;
+    width: 15vw;
+    height: clamp(600px, 40vh, 40vh);
+    border-radius: 2px;
+    border: 1px solid black;
+    background-image: url('https://images.unsplash.com/photo-1585159183446-0fc0eaf9e57c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+    background-size: cover;
+}
+.ad{
+   margin: 0.2vw;
+    font-size: calc(6px + 0.2vw);
 }

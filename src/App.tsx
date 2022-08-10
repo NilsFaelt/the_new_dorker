@@ -25,13 +25,18 @@ interface WeatherApi {
   temp_c: number;
   is_day: number;
 }
-
-interface NewsInterface {}
+interface NewsInterFace {
+  author?: string;
+  content: string;
+  publishedAt?: string;
+  title: string;
+  urlToImage: string;
+}
 
 function App() {
   const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<WeatherApi | null>(null);
-  const [news, setNews] = useState<NewsInterface | null>(null);
+  const [news, setNews] = useState<NewsInterFace[] | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
   const subscribeRef = useRef<any>(null);
@@ -41,12 +46,12 @@ function App() {
       const response = await axios.get(
         `https://newsapi.org/v2/everything?q=Apple&from=2022-08-08&sortBy=popularity&apiKey=${NEWS_API_KEY}`
       );
-      setNews(response.data);
-      console.log(response.data);
+      setNews(response.data.articles);
     } catch (err) {
       console.log(`Something went wrong in fetch news, ${err}`);
     }
   };
+  console.log(news);
 
   const fetchWeather = async () => {
     try {
@@ -63,9 +68,9 @@ function App() {
   //   fetchWeather();
   // }, [city]);
 
-  // useEffect(() => {
-  //   fetchNews();
-  // }, []);
+  useEffect(() => {
+    fetchNews();
+  }, []);
 
   return (
     <div className='App'>
@@ -78,7 +83,7 @@ function App() {
       />
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes>
-        <Route path='/' element={<News />} />
+        <Route path='/' element={<News news={news} />} />
         <Route path='/sports' element={<Sports />} />
         <Route path='/finnance' element={<Finnance />} />
         <Route path='/sellnews' element={<SellNews />} />
