@@ -75,6 +75,7 @@
     flex-direction: column;
     justify-content: center;
     font-family: 'Cinzel', serif;
+    font-size: calc(10px + 0.4vw);
     width: clamp(250px, 30vw, 30vw);
     margin-bottom: 5vh;
 }

@@ -31,10 +31,6 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
     StocksInterface[] | null
   >(null);
 
-  useEffect(() => {
-    setFilteredStocks(stocks);
-  }, []);
-
   const searchForTicker = (e: FormEvent) => {
     e.preventDefault();
     const filteredStocks = stocks?.filter((stocks) =>
@@ -49,6 +45,20 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
     setTicker("");
     console.log(filteredStocks, "testing");
   };
+  useEffect(() => {
+    setFilteredStocks(stocks);
+    const filteredStocks = stocks?.filter((stocks) =>
+      stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
+    );
+
+    if (ticker === "") {
+      setFilteredStocks(stocks);
+    } else if (ticker !== "" && filteredStocks) {
+      setFilteredStocks(filteredStocks);
+    }
+
+    console.log(filteredStocks, "testing");
+  }, [ticker]);
 
   return (
     <div>
@@ -59,11 +69,7 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
         </ul>
         <hr />
       </nav>
-      <form
-        className={Styles.form}
-        onSubmit={(e) => searchForTicker(e)}
-        action=''
-      >
+      <form className={Styles.form} action=''>
         <label htmlFor=''>
           Search for comapny name or part of comapany name
         </label>
