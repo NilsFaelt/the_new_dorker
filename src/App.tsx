@@ -93,7 +93,7 @@ function App() {
   const fetchStocks = async () => {
     try {
       const response = await axios.get(
-        `https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=100&apikey=${FINNANCE_API_KEY}`
+        `https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=160&apikey=${FINNANCE_API_KEY}`
       );
       setStocks(response.data);
     } catch (err) {

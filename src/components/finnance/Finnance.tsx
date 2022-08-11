@@ -79,7 +79,6 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
           placeholder='Company name or part of'
           value={ticker}
         />
-        <button>Search</button>
       </form>
 
       <div className={Styles.container}>
