@@ -3,7 +3,7 @@
     bottom: 30vh;
     left: clamp(10px, 1vw, 1vw);
     width: 10vw;
-    z-index: 9;
+    z-index: 3;
    
 }
 
