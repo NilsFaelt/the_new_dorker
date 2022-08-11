@@ -120,7 +120,7 @@ function App() {
 
   useEffect(() => {
     // fetchNews();
-    fetchStockGainers();
+    // fetchStockGainers();
     fetchStocks();
   }, []);
 

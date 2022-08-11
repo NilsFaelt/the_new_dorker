@@ -68,6 +68,16 @@
     width: clamp(250px, 60vw, 60vw);
     margin-left: 10vw;
 }
+.form{
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    width: clamp(250px, 30vw, 30vw);
+    margin-bottom: 5vh;
+}
 
 @media screen and (max-width: 700px) {
     .stockContainer{

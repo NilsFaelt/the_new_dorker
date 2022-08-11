@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import PopUp from "../popUp/PopUp";
 import Stock from "../stock/Stock";
 import Styles from "./finnance.module.css";
@@ -26,7 +26,30 @@ interface Props {
 
 const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
   const [toogle, setToogle] = useState<boolean>(true);
-  console.log(stockGainers);
+  const [ticker, setTicker] = useState("");
+  const [filteredStocks, setFilteredStocks] = useState<
+    StocksInterface[] | null
+  >(null);
+
+  useEffect(() => {
+    setFilteredStocks(stocks);
+  }, []);
+
+  const searchForTicker = (e: FormEvent) => {
+    e.preventDefault();
+    const filteredStocks = stocks?.filter((stocks) =>
+      stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
+    );
+
+    if (ticker === "") {
+      setFilteredStocks(stocks);
+    } else if (ticker !== "" && filteredStocks) {
+      setFilteredStocks(filteredStocks);
+    }
+    setTicker("");
+    console.log(filteredStocks, "testing");
+  };
+
   return (
     <div>
       <nav className={Styles.nav}>
@@ -36,11 +59,28 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
         </ul>
         <hr />
       </nav>
+      <form
+        className={Styles.form}
+        onSubmit={(e) => searchForTicker(e)}
+        action=''
+      >
+        <label htmlFor=''>
+          Search for comapny name or part of comapany name
+        </label>
+        <input
+          onChange={(e) => setTicker(e.target.value)}
+          type='text'
+          placeholder='Company name or part of'
+          value={ticker}
+        />
+        <button>Search</button>
+      </form>
+
       <div className={Styles.container}>
         <PopUp />
         {toogle ? (
           <div className={Styles.stockContainer}>
-            {stocks?.map((stock) => (
+            {filteredStocks?.map((stock) => (
               <Stock stock={stock} />
             ))}
           </div>
