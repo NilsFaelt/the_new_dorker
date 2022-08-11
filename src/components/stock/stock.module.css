@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-  
     gap: 2vw;
     margin-bottom: 2vh;
     width: clamp(200px, 20vw, 20vw);
@@ -11,6 +10,7 @@
     font-size: calc(8px + 0.4vw);
     padding: 1vw;
     margin-right: 1vw;
+
 }
 .innerDiv{
     display: flex;

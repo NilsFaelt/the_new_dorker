@@ -69,17 +69,19 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
         </ul>
         <hr />
       </nav>
-      <form className={Styles.form} action=''>
-        <label htmlFor=''>
-          Search for comapny name or part of comapany name
-        </label>
-        <input
-          onChange={(e) => setTicker(e.target.value)}
-          type='text'
-          placeholder='Company name or part of'
-          value={ticker}
-        />
-      </form>
+      {toogle ? (
+        <form className={Styles.form} action=''>
+          <label htmlFor=''>
+            Search for comapny name or part of comapany name
+          </label>
+          <input
+            onChange={(e) => setTicker(e.target.value)}
+            type='text'
+            placeholder='Company name or part of'
+            value={ticker}
+          />
+        </form>
+      ) : null}
 
       <div className={Styles.container}>
         <PopUp />
