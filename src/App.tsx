@@ -10,7 +10,7 @@ import News from "./components/news/News";
 import SellNews from "./components/sellNews/SellNews";
 import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
-import { WEATHER_API_KEY, NEWS_API_KEY } from "./apiKeys";
+import { WEATHER_API_KEY, NEWS_API_KEY, FINNANCE_API_KEY } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
@@ -32,10 +32,31 @@ interface NewsInterFace {
   image: string;
 }
 
+interface StockGainersInterface {
+  name: string;
+  symbol: string;
+  price: number;
+  changesPercentage: number;
+}
+
+interface StocksInterface {
+  companyName: string;
+  country?: string;
+  exchangeShortName?: string;
+  marketCap?: number;
+  price: number;
+  symbol: string;
+  sector: string;
+}
+
 function App() {
   const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<WeatherApi | null>(null);
   const [news, setNews] = useState<NewsInterFace[] | null>(null);
+  const [stockGainers, setStockGainers] = useState<
+    StockGainersInterface[] | null
+  >(null);
+  const [stocks, setStocks] = useState<StocksInterface[] | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
   const subscribeRef = useRef<any>(null);
@@ -57,7 +78,30 @@ function App() {
       console.log(`Something went wrong in fetch news, ${err}`);
     }
   };
-  console.log(news);
+
+  const fetchStockGainers = async () => {
+    try {
+      const response = await axios.get(
+        `https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=${FINNANCE_API_KEY}`
+      );
+      setStockGainers(response.data);
+    } catch (err) {
+      console.log(`Something went wrong in fetch news, ${err}`);
+    }
+  };
+
+  const fetchStocks = async () => {
+    try {
+      const response = await axios.get(
+        `https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=100&apikey=${FINNANCE_API_KEY}`
+      );
+      setStocks(response.data);
+    } catch (err) {
+      console.log(`Something went wrong in fetch news, ${err}`);
+    }
+  };
+
+  console.log(stocks);
 
   const fetchWeather = async () => {
     try {
@@ -70,12 +114,14 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchWeather();
-  }, [city]);
+  // useEffect(() => {
+  //   fetchWeather();
+  // }, [city]);
 
   useEffect(() => {
-    fetchNews();
+    // fetchNews();
+    // fetchStockGainers();
+    fetchStocks();
   }, []);
 
   return (
@@ -91,7 +137,10 @@ function App() {
       <Routes>
         <Route path='/' element={<News news={news} />} />
         <Route path='/sports' element={<Sports />} />
-        <Route path='/finnance' element={<Finnance />} />
+        <Route
+          path='/finnance'
+          element={<Finnance stocks={stocks} stockGainers={stockGainers} />}
+        />
         <Route path='/sellnews' element={<SellNews />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
@@ -119,5 +168,7 @@ function App() {
 //news search function
 // fix key chat
 //fix ts for subscribeRef
+
+//gnews.io
 
 export default App;

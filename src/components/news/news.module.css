@@ -20,7 +20,7 @@
     border: 1px solid black;
     background-image: url('https://images.unsplash.com/photo-1587476353394-d031d13188ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80');
     background-size: cover;
-  
+    cursor: pointer;
 }
 .ad{
    margin: 0.2vw;

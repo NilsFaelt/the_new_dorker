@@ -22,9 +22,11 @@ const News: React.FC<Props> = ({ news }) => {
         <PopUp />
       </div>
       <div className={Styles.asideWrapper}>
-        <aside className={Styles.aside}>
-          <p className={Styles.ad}>Advertisment</p>
-        </aside>
+        <a href='https://burgerking.se/' target={"blank"}>
+          <aside className={Styles.aside}>
+            <p className={Styles.ad}>Advertisment</p>
+          </aside>
+        </a>
       </div>
     </div>
   );

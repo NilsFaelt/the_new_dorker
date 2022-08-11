@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2vh;
+    width: clamp(200px, 20vw, 20vw);
+    border-bottom: 1px solid black;
+    font-size: calc(8px + 0.4vw);
+    padding: 1vw;
+    margin-right: 1vw;
+}
+.title{
+    font-family: 'Cinzel', serif;
+    text-decoration: underline;
+    font-size: calc(10px + 0.3vw);
+    margin-bottom :2vh ;
+}
