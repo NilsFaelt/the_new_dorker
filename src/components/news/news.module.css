@@ -11,11 +11,11 @@
 
 .aside{
     position: sticky;
-    top: 10vh;
+    top: 21vh;
     margin-left: 7vw;
     margin-right: 2vw;
     width: clamp(100px ,15vw,15vw);
-    height: clamp(600px, 40vh, 40vh);
+    height: clamp(550px, 30vh, 40vh);
     border-radius: 2px;
     border: 1px solid black;
     background-image: url('https://images.unsplash.com/photo-1587476353394-d031d13188ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80');

@@ -114,13 +114,13 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   fetchWeather();
-  // }, [city]);
+  useEffect(() => {
+    fetchWeather();
+  }, [city]);
 
   useEffect(() => {
-    // fetchNews();
-    // fetchStockGainers();
+    fetchNews();
+    fetchStockGainers();
     fetchStocks();
   }, []);
 

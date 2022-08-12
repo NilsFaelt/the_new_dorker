@@ -31,7 +31,7 @@
 }
 .aside{
     position: sticky;
-    top: 10vh;
+    top: 19vh;
     margin-left: 0vw;
     margin-right: 5vw;
     width: clamp(100px ,15vw,15vw);
