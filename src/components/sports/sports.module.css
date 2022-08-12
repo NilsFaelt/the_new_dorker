@@ -1,4 +1,12 @@
 .container{
+    display: flex;
+    flex-direction: column;
     position: relative;
     height:min(70vh) ;
+}
+.playerDiv{
+
+    margin-top: 15vh;
+    margin: 0 auto;
+  
 }

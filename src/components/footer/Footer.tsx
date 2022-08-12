@@ -66,8 +66,8 @@ const Footer: React.FC<Props> = ({
             <Link className={Styles.link} to={"/finnance"}>
               <p>Finnance</p>
             </Link>
-            <Link className={Styles.link} to={"/sports"}>
-              <p>Sport</p>
+            <Link className={Styles.link} to={"/livenews"}>
+              <p>Live News</p>
             </Link>
           </div>
         </div>

@@ -15,6 +15,7 @@ import {
   NEWS_API_KEY,
   FINNANCE_API_KEY,
   FINNANCE_NEWS_API_KEY,
+  SPORTS_API_KEY,
 } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
@@ -103,7 +104,7 @@ function App() {
       );
       setStockGainers(response.data);
     } catch (err) {
-      console.log(`Something went wrong in fetch news, ${err}`);
+      console.log(`Something went wrong in fetch StockGainers, ${err}`);
     }
   };
 
@@ -114,7 +115,7 @@ function App() {
       );
       setStocks(response.data);
     } catch (err) {
-      console.log(`Something went wrong in fetch news, ${err}`);
+      console.log(`Something went wrong in fetch stocks, ${err}`);
     }
   };
   const fetchStocksNews = async () => {
@@ -124,7 +125,7 @@ function App() {
       );
       setStockNews(response.data.data);
     } catch (err) {
-      console.log(`Something went wrong in fetch news, ${err}`);
+      console.log(`Something went wrong in fetch stock news, ${err}`);
     }
   };
   console.log(stockNews);
@@ -139,13 +140,24 @@ function App() {
       console.log("Failed to fetch weather api, error:", err);
     }
   };
+  const fetchSportsResults = async () => {
+    try {
+      const response = await axios.get(
+        `https://app.sportdataapi.com/api/v1/countries?apikey=${SPORTS_API_KEY}&continent=Europe`
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log("Failed to fetch sports api, error:", err);
+    }
+  };
 
   useEffect(() => {
     // fetchWeather();
   }, [city]);
 
   useEffect(() => {
-    fetchStocksNews();
+    fetchSportsResults();
+    // fetchStocksNews();
     // fetchNews();
     // fetchStockGainers();
     // fetchStocks();
@@ -163,7 +175,7 @@ function App() {
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes>
         <Route path='/' element={<News news={news} />} />
-        <Route path='/sports' element={<Sports />} />
+        <Route path='/livenews' element={<Sports />} />
         <Route
           path='/finnance'
           element={

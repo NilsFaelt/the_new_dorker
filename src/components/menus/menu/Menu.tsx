@@ -12,8 +12,8 @@ const Menu: React.FC<Props> = ({ setToogleWetaher }) => {
         <Link className={Styles.link} to={"/"}>
           <li>News</li>
         </Link>
-        <Link className={Styles.link} to={"/sports"}>
-          <li>Sports</li>
+        <Link className={Styles.link} to={"/livenews"}>
+          <li>Live News</li>
         </Link>
 
         <li className={Styles.link} onClick={() => setToogleWetaher(true)}>
