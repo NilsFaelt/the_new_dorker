@@ -10,7 +10,12 @@ import News from "./components/news/News";
 import SellNews from "./components/sellNews/SellNews";
 import Sports from "./components/sports/Sports";
 import Weather from "./components/weather/Weather";
-import { WEATHER_API_KEY, NEWS_API_KEY, FINNANCE_API_KEY } from "./apiKeys";
+import {
+  WEATHER_API_KEY,
+  NEWS_API_KEY,
+  FINNANCE_API_KEY,
+  FINNANCE_NEWS_API_KEY,
+} from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
@@ -48,11 +53,21 @@ interface StocksInterface {
   symbol: string;
   sector: string;
 }
+interface StocksNewsInterface {
+  title: string;
+  image_url: string;
+  uuid?: string;
+  published_at?: string;
+  description?: string;
+}
 
 function App() {
   const [city, setCity] = useState<string>("stockholm");
   const [weather, setWeather] = useState<WeatherApi | null>(null);
   const [news, setNews] = useState<NewsInterFace[] | null>(null);
+  const [stockNews, setStockNews] = useState<StocksNewsInterface[] | null>(
+    null
+  );
   const [stockGainers, setStockGainers] = useState<
     StockGainersInterface[] | null
   >(null);
@@ -100,8 +115,17 @@ function App() {
       console.log(`Something went wrong in fetch news, ${err}`);
     }
   };
-
-  console.log(stocks);
+  const fetchStocksNews = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.marketaux.com/v1/news/all?symbols=TSLA,AMZN,MSFT&filter_entities=true&language=en&api_token=${FINNANCE_NEWS_API_KEY}`
+      );
+      setStockNews(response.data.data);
+    } catch (err) {
+      console.log(`Something went wrong in fetch news, ${err}`);
+    }
+  };
+  console.log(stockNews);
 
   const fetchWeather = async () => {
     try {
@@ -119,6 +143,7 @@ function App() {
   }, [city]);
 
   useEffect(() => {
+    fetchStocksNews();
     // fetchNews();
     // fetchStockGainers();
     // fetchStocks();
@@ -139,7 +164,13 @@ function App() {
         <Route path='/sports' element={<Sports />} />
         <Route
           path='/finnance'
-          element={<Finnance stocks={stocks} stockGainers={stockGainers} />}
+          element={
+            <Finnance
+              stockNews={stockNews}
+              stocks={stocks}
+              stockGainers={stockGainers}
+            />
+          }
         />
         <Route path='/sellnews' element={<SellNews />} />
         <Route path='/about' element={<About />} />

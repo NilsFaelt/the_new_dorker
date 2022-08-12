@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import PopUp from "../popUp/PopUp";
 import Stock from "../stock/Stock";
+import StockNews from "../stockNews/StockNews";
 import Styles from "./finnance.module.css";
 
 interface StockGainersInterface {
@@ -19,12 +20,21 @@ interface StocksInterface {
   sector: string;
 }
 
+interface StocksNewsInterface {
+  title: string;
+  image_url: string;
+  uuid?: string;
+  published_at?: string;
+  description?: string;
+}
+
 interface Props {
   stockGainers: StockGainersInterface[] | null;
   stocks: StocksInterface[] | null;
+  stockNews: StocksNewsInterface[] | null;
 }
 
-const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
+const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
   const [toogle, setToogle] = useState<boolean>(true);
   const [ticker, setTicker] = useState("");
   const [filteredStocks, setFilteredStocks] = useState<
@@ -91,7 +101,13 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks }) => {
               <Stock stock={stock} />
             ))}
           </div>
-        ) : null}
+        ) : (
+          <div className={Styles.stockNewsContainer}>
+            {stockNews?.map((stock) => (
+              <StockNews stockNews={stock} />
+            ))}
+          </div>
+        )}
         <aside className={Styles.aside}>
           <h3 className={Styles.gainsTitle}>Todays Gainers</h3>
           {stockGainers?.map((stock) => {

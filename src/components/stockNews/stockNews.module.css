@@ -1,0 +1,21 @@
+.container{
+    width: clamp(200px, 40vw, 40vw);
+    margin-bottom: 10vh;
+    border-bottom: 1px solid black;
+    padding: 2vh;
+}
+.title{
+
+}
+.img{
+    width: 40vw;
+}
+.text{
+    font-size: calc(10px + 0.3vw);
+    margin-top: 2vh;
+}
+.date{
+    font-size: calc(6px + 0.2vw);
+    margin-top: 5vh;
+}
+
