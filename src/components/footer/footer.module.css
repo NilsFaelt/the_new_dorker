@@ -51,7 +51,7 @@
 .confirmSubscribe{
     position: absolute;
     right: 5vw;
-    top: 60vh;
+    margin-bottom: 50vh;
     border: 1px solid black;
     border-radius: 5px;
     padding: 2vw;
@@ -59,6 +59,7 @@
     font-family: 'Cinzel', serif;
     cursor: pointer;
     background-color: rgb(226, 226, 226);
+    z-index: 3;
 }
 .mail{
   font-weight: bold;

@@ -115,13 +115,13 @@ function App() {
   };
 
   useEffect(() => {
-    fetchWeather();
+    // fetchWeather();
   }, [city]);
 
   useEffect(() => {
-    fetchNews();
-    fetchStockGainers();
-    fetchStocks();
+    // fetchNews();
+    // fetchStockGainers();
+    // fetchStocks();
   }, []);
 
   return (

@@ -96,24 +96,24 @@ const Footer: React.FC<Props> = ({
             Subscribe
           </button>
         </form>
-        {subcribe ? (
-          <div
-            onClick={() => setSubscribe(false)}
-            className={Styles.confirmSubscribe}
-          >
-            <h3>Thanks For Your subscription</h3>
-            <p>
-              Newletters will be sent to:
-              <span className={Styles.mail}> {mailP}</span>
-            </p>
-            <p>
-              {" "}
-              Best regards/ <br />
-            </p>
-            <p className={Styles.subscribeTitle}>The New Dorker</p>
-          </div>
-        ) : null}
       </div>
+      {subcribe ? (
+        <div
+          onClick={() => setSubscribe(false)}
+          className={Styles.confirmSubscribe}
+        >
+          <h3>Thanks For Your subscription</h3>
+          <p>
+            Newletters will be sent to:
+            <span className={Styles.mail}> {mailP}</span>
+          </p>
+          <p>
+            {" "}
+            Best regards/ <br />
+          </p>
+          <p className={Styles.subscribeTitle}>The New Dorker</p>
+        </div>
+      ) : null}
     </footer>
   );
 };
