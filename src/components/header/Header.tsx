@@ -7,6 +7,7 @@ import BurgerMenu from "../menus/burger/BurgerMenu";
 import { useState } from "react";
 import Login from "../login/Login";
 import CreateAccount from "../login/createAccount/CreateAccount";
+import SubscribeLock from "../subscribeLock/SubscribeLock";
 
 interface Condition {
   text: string;
@@ -105,6 +106,7 @@ const Header: React.FC<Props> = ({
           setToogleChat={setToogleChat}
         />
       ) : null}
+      {<SubscribeLock />}
     </header>
   );
 };

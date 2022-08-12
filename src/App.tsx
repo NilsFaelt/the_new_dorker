@@ -153,7 +153,7 @@ function App() {
   console.log(weather);
 
   useEffect(() => {
-    fetchWeather();
+    // fetchWeather();
   }, [city]);
 
   useEffect(() => {
@@ -212,5 +212,6 @@ function App() {
 }
 
 // annoying subscribe lock
+// make news big onclick
 
 export default App;
