@@ -5,7 +5,7 @@
     margin: 0 auto;
     margin-top: 4vh;
     padding-top: 2vh;
-    width: clamp(350px, 70vw, 90vw);
+    width: clamp(350px, 50vw, 60vw);
     height: auto;
     border: 1px solid black;
     border-radius: 5px;

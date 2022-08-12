@@ -1,6 +1,7 @@
 import EachNews from "../eachNews/EachNews";
 import PopUp from "../popUp/PopUp";
 import Styles from "./news.module.css";
+import newYork from "../../assets/newYork.png";
 
 interface NewsInterFace {
   content: string;

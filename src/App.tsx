@@ -141,14 +141,14 @@ function App() {
   };
 
   useEffect(() => {
-    // fetchWeather();
+    fetchWeather();
   }, [city]);
 
   useEffect(() => {
-    // fetchStocksNews();
-    // fetchNews();
-    // fetchStockGainers();
-    // fetchStocks();
+    fetchStocksNews();
+    fetchNews();
+    fetchStockGainers();
+    fetchStocks();
   }, []);
 
   return (

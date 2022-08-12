@@ -7,6 +7,7 @@
     gap: 2vw;
     width: 100vw ;
     height: auto;
+  
 }
 .textDivWrapper{
     width: clamp(270px, 60vw, 60vw);
@@ -15,6 +16,7 @@
     padding: 5vh;
     box-shadow: 5px 5px 5px;
     font-size: calc(10px + 0.3vw);
+    background-color: white;
 }
 .aside{
     width: clamp(270px, 15vw, 20vw);
@@ -23,4 +25,5 @@
     padding: 5vh;
     box-shadow: 5px 5px 5px;
     font-size: calc(10px + 0.3vw);
+    background-color: white;
 }
