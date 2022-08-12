@@ -10,16 +10,24 @@ const SubscribeLock: React.FC<Props> = ({
   setToogleCreateAccount,
   setToogleLogin,
 }) => {
+  const login = () => {
+    setToogleLogin(true);
+    setToogleCreateAccount(false);
+  };
+  const create = () => {
+    setToogleLogin(false);
+    setToogleCreateAccount(true);
+  };
   return (
     <div className={Styles.container}>
       <h4>
         Get free acces by Createing a <br /> account or login{" "}
       </h4>
       <div className={Styles.loginDiv}>
-        <p onClick={() => setToogleLogin(true)} className={Styles.text}>
+        <p onClick={() => login()} className={Styles.text}>
           Login?
         </p>
-        <p onClick={() => setToogleCreateAccount(true)} className={Styles.text}>
+        <p onClick={() => create()} className={Styles.text}>
           Create Account?
         </p>
       </div>

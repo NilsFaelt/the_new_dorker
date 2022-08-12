@@ -3,6 +3,7 @@ import { XIcon } from "@heroicons/react/solid";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { auth } from "../../firebase-config";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { CogIcon } from "@heroicons/react/outline";
 
 interface Props {
   setToogleLogin: (toogle: boolean) => void;
@@ -90,7 +91,7 @@ const Login: React.FC<Props> = ({
         </form>
       ) : (
         <p>
-          Logged in as: <br /> {loggedIn}
+          Logedin as: <br /> {loggedIn}
         </p>
       )}
       {!loggedIn ? (
@@ -101,7 +102,10 @@ const Login: React.FC<Props> = ({
           Create account?
         </p>
       ) : (
-        <button onClick={() => logout()}>Logout</button>
+        <div>
+          <button onClick={() => logout()}>Logout</button>
+          <CogIcon className={Styles.cog} />
+        </div>
       )}
     </div>
   );

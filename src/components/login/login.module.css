@@ -15,6 +15,7 @@
     right:clamp(10px, 5vw, 100px);
     top: 12vh;
     z-index: 15;
+    font-family: 'Cinzel', serif;
 }
 .form{
     margin-top: 1vh;
@@ -40,4 +41,12 @@
     left: clamp(10px, 2vw, 10px);
     top: 1vh;
     cursor: pointer;
+}
+.cog{
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    width: calc(15px + 1vw);
+    cursor:pointer;
+   
 }

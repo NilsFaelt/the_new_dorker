@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Styles from "./allowCookkies.module.css";
 
 interface Props {

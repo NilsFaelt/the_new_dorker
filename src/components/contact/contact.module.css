@@ -19,6 +19,7 @@
     flex-direction: column;
     width: clamp(250px, 30vw, 30vw);
     margin-bottom: 7vh;
+    margin-top: 2vh;
 }
 .textArea{
     height: clamp(200px, 20vh, 100vh);

@@ -141,14 +141,14 @@ function App() {
   };
 
   useEffect(() => {
-    fetchWeather();
+    // fetchWeather();
   }, [city]);
 
   useEffect(() => {
-    fetchStocksNews();
-    fetchNews();
-    fetchStockGainers();
-    fetchStocks();
+    // fetchStocksNews();
+    // fetchNews();
+    // fetchStockGainers();
+    // fetchStocks();
   }, []);
 
   return (
@@ -198,7 +198,7 @@ function App() {
   );
 }
 
-// annoying subscribe lock
 // make news big onclick
+// adds contact
 
 export default App;
