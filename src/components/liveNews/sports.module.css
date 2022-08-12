@@ -5,8 +5,14 @@
     height:min(70vh) ;
 }
 .playerDiv{
-
     margin-top: 15vh;
     margin: 0 auto;
   
+}
+.sound{
+    position: absolute;
+    right: 10vw;
+    margin-top: 2vh;
+    width: clamp(40px, 2vw, 2vw);
+    cursor: pointer;
 }

@@ -8,7 +8,7 @@ import Header from "./components/header/Header";
 import Menu from "./components/menus/menu/Menu";
 import News from "./components/news/News";
 import SellNews from "./components/sellNews/SellNews";
-import Sports from "./components/sports/Sports";
+import Sports from "./components/liveNews/LiveNews";
 import Weather from "./components/weather/Weather";
 import {
   WEATHER_API_KEY,
