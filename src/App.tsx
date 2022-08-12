@@ -15,7 +15,6 @@ import {
   NEWS_API_KEY,
   FINNANCE_API_KEY,
   FINNANCE_NEWS_API_KEY,
-  SPORTS_API_KEY,
 } from "./apiKeys";
 import "./index.css";
 import About from "./components/about/About";
@@ -140,24 +139,12 @@ function App() {
       console.log("Failed to fetch weather api, error:", err);
     }
   };
-  const fetchSportsResults = async () => {
-    try {
-      const response = await axios.get(
-        `https://app.sportdataapi.com/api/v1/countries?apikey=${SPORTS_API_KEY}&continent=Europe`
-      );
-      console.log(response.data);
-    } catch (err) {
-      console.log("Failed to fetch sports api, error:", err);
-    }
-  };
-  console.log(weather);
 
   useEffect(() => {
     // fetchWeather();
   }, [city]);
 
   useEffect(() => {
-    fetchSportsResults();
     // fetchStocksNews();
     // fetchNews();
     // fetchStockGainers();

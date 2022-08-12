@@ -14,7 +14,7 @@
     position: absolute;
     right:clamp(10px, 5vw, 100px);
     top: 12vh;
-    z-index: 4;
+    z-index: 15;
 }
 .form{
     margin-top: 1vh;

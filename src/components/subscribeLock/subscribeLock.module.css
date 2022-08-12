@@ -1,0 +1,36 @@
+.container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 11vh;
+    z-index: 14;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(183, 180, 179);
+    padding-top: 5vh;
+    border-top: 1px solid black;
+}
+.loginDiv{
+    margin: 0 auto;
+    margin-top: 5vh;
+    border: 1px solid teal;
+    padding: 2vh;
+    width: clamp(200px, 20vw, 20vw);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+}
+.text{
+    text-align: center;
+    margin-top: 1vh;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    
+}
+.text:hover{
+    color: white;
+}
+.newYork{
+    width: 50vw;
+    margin-top: 5vh;
+}

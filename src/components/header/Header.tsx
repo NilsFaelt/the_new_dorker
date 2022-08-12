@@ -40,6 +40,7 @@ const Header: React.FC<Props> = ({
   const [toogleLogin, setToogleLogin] = useState<boolean>(false);
   const [toogleCreateAccount, setToogleCreateAccount] =
     useState<boolean>(false);
+  const [toogleSubLock, setToogleSubLock] = useState<boolean>(false);
 
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
@@ -55,6 +56,15 @@ const Header: React.FC<Props> = ({
       setToogleCreateAccount(false);
     }
   };
+
+  // setTimeout(() => {
+  //   if (!loggedIn) {
+  //     setToogleSubLock(true);
+  //   } else {
+  //     setToogleSubLock(false);
+  //   }
+  // }, 1000 * 5);
+
   return (
     <header className={Styles.container}>
       <MenuIcon onClick={() => toogleMenuOnClick()} className={Styles.burger} />
@@ -106,7 +116,12 @@ const Header: React.FC<Props> = ({
           setToogleChat={setToogleChat}
         />
       ) : null}
-      {<SubscribeLock />}
+      {toogleSubLock ? null : (
+        <SubscribeLock
+          setToogleCreateAccount={setToogleCreateAccount}
+          setToogleLogin={setToogleLogin}
+        />
+      )}
     </header>
   );
 };
