@@ -150,9 +150,10 @@ function App() {
       console.log("Failed to fetch sports api, error:", err);
     }
   };
+  console.log(weather);
 
   useEffect(() => {
-    // fetchWeather();
+    fetchWeather();
   }, [city]);
 
   useEffect(() => {
@@ -210,11 +211,6 @@ function App() {
   );
 }
 
-//news api
-//news search function
-// fix key chat
-//fix ts for subscribeRef
-
-//gnews.io
+// annoying subscribe lock
 
 export default App;
