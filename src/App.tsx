@@ -20,6 +20,7 @@ import "./index.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 import { ChevronDoubleUpIcon } from "@heroicons/react/solid";
+import AllowCookies from "./components/allowCookies/AllowCookies";
 
 interface Condition {
   text: string;
@@ -74,6 +75,7 @@ function App() {
   const [stocks, setStocks] = useState<StocksInterface[] | null>(null);
   const [tooglWeather, setToogleWetaher] = useState<boolean>(false);
   const [tooglChat, setToogleChat] = useState<boolean>(false);
+  const [cookies, setCookies] = useState<boolean>(true);
   const subscribeRef = useRef<any>(null);
 
   const scrollToTop = () => {
@@ -191,6 +193,7 @@ function App() {
         subscribeRef={subscribeRef}
         setToogleChat={setToogleChat}
       />
+      {cookies ? <AllowCookies setCookies={setCookies} /> : null}
     </div>
   );
 }

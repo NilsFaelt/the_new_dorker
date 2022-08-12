@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+   left: 2vw;
+    position: absolute;
+    bottom: 5vh;
+    width: clamp(300px, 30vw, 30vw);
+    height: auto;
+    padding: 5vw;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 5px 5px 5px;
+    font-family: sans-serif;
+    font-size: calc(8px + 0.3vw);
+    border-radius: 5px;
+}
+.btnDiv{
+    display: flex;
+    gap: 3vw;
+}
