@@ -13,7 +13,7 @@ const SubscribeLock: React.FC<Props> = ({
   return (
     <div className={Styles.container}>
       <h4>
-        Subscribe or login to get acces <br /> to The New Dorker
+        Get free acces by Createing a <br /> account or login{" "}
       </h4>
       <div className={Styles.loginDiv}>
         <p onClick={() => setToogleLogin(true)} className={Styles.text}>
