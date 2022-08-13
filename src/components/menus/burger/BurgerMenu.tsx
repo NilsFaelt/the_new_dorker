@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Styles from "./burgerMenu.module.css";
 
@@ -16,6 +16,8 @@ const BurgerMenu: React.FC<Props> = ({
   subscribeRef,
   setToogleMenu,
 }) => {
+  const [toogleWorkWithUs, setToogleWorkWithUs] = useState<Boolean>(false);
+
   const subscribeFocusOnClick = () => {
     setToogleMenu(false);
     subscribeRef.current.focus();
@@ -50,7 +52,17 @@ const BurgerMenu: React.FC<Props> = ({
           <li className={Styles.secondLi}>About</li>
         </Link>
         <Link className={Styles.link} to={"/"}>
-          <li className={Styles.secondLi}>Work With Us</li>
+          <li
+            onMouseOver={() => setToogleWorkWithUs(true)}
+            onMouseLeave={() => setToogleWorkWithUs(false)}
+            className={Styles.secondLi}
+          >
+            {!toogleWorkWithUs ? (
+              <p>Work with us</p>
+            ) : (
+              <p>Under devlopment/coming soon</p>
+            )}
+          </li>
         </Link>
         <Link className={Styles.link} to={"/sellnews"}>
           <li className={Styles.secondLi}>Sell your stories/news</li>
