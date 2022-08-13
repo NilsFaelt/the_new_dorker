@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import EachNews from "../eachNews/EachNews";
 import PopUp from "../popUp/PopUp";
+import PopUpVideo from "../popUpVideo/PopUpVideo";
 import Styles from "./news.module.css";
 
 interface NewsInterFace {
@@ -13,6 +15,9 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ news }) => {
+  const [nrGen, setNrgen] = useState<number>(Math.floor(Math.random() * 3 + 1));
+
+  console.log(nrGen);
   return (
     <div className={Styles.outerDiv}>
       <div className={Styles.container}>
@@ -28,6 +33,7 @@ const News: React.FC<Props> = ({ news }) => {
           </aside>
         </a>
       </div>
+      {nrGen === 2 ? <PopUpVideo setNrgen={setNrgen} /> : null}
     </div>
   );
 };

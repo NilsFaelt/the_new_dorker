@@ -1,0 +1,17 @@
+.container{
+    position: absolute;
+    top: 35vh;
+    right:5vw;
+    z-index: 16;
+    box-shadow: 5px 5px 5px;
+    height: auto;
+    width: auto;
+}
+.xIcon{
+    width: clamp(20px, 2vw, 100px);
+    position: absolute;
+    left: clamp(10px, 2vw, 10px);
+    top: 1vh;
+    cursor: pointer;
+    color: white;
+}

@@ -13,7 +13,7 @@ const PopUp = () => {
     "https://images.unsplash.com/photo-1637949754765-c846a69c4509?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
   ];
   const nrGen = Math.floor(Math.random() * 5);
-  console.log(nrGen);
+
   return (
     <div className={Styles.container}>
       {toogle ? (
