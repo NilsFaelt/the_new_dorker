@@ -48,5 +48,34 @@
     right: 1vw;
     width: calc(15px + 1vw);
     cursor:pointer;
+}
+.settingsSpan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hr{
+    width: clamp(270px, 30vw, 30vw);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.applySettingsDiv{
+    margin-top: 2vh;
+    padding: clamp(20px, 3vw, 3vw);
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 0.2vw);
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    border: 1px solid teal;
    
+}
+.singleSetting{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2vw;
+    margin-top: 1vh;
+
 }

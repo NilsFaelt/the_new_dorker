@@ -32,6 +32,7 @@ const SubscribeLock: React.FC<Props> = ({
         </p>
       </div>
       <img className={Styles.newYork} src={newYork} alt='' />
+      <div className={Styles.burgerBlock}></div>
     </div>
   );
 };

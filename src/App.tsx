@@ -200,5 +200,7 @@ function App() {
 
 // make news big onclick
 // adds contact
+//fix funcfile for fetch
+//weather link app
 
 export default App;

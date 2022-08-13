@@ -20,6 +20,7 @@ const Login: React.FC<Props> = ({
 }) => {
   const [email, setEmail] = useState<string>("anatole0000@gmail.com");
   const [password, setPassword] = useState<string>("nilsnils");
+  const [toogleSettings, setToogleSettings] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -61,7 +62,7 @@ const Login: React.FC<Props> = ({
     return;
   }, [logout]);
 
-  console.log(loggedIn);
+  console.log(toogleSettings);
   return (
     <div className={Styles.container}>
       <XIcon onClick={() => setToogleLogin(false)} className={Styles.xIcon} />
@@ -104,9 +105,32 @@ const Login: React.FC<Props> = ({
       ) : (
         <div>
           <button onClick={() => logout()}>Logout</button>
-          <CogIcon className={Styles.cog} />
+          <CogIcon
+            onClick={() => setToogleSettings(!toogleSettings)}
+            className={Styles.cog}
+          />
         </div>
       )}
+      {toogleSettings ? (
+        <span className={Styles.settingsSpan}>
+          <hr className={Styles.hr} />
+          <p>Settings</p>
+          <div className={Styles.applySettingsDiv}>
+            <div className={Styles.singleSetting}>
+              <p>Allow cookies</p>
+              <input style={{ cursor: "pointer" }} type='checkbox' />
+            </div>
+            <div className={Styles.singleSetting}>
+              <p>Stay logedin</p>
+              <input style={{ cursor: "pointer" }} type='checkbox' />
+            </div>
+            <div className={Styles.singleSetting}>
+              <p>Sound on</p>
+              <input style={{ cursor: "pointer" }} type='checkbox' />
+            </div>
+          </div>
+        </span>
+      ) : null}
     </div>
   );
 };
