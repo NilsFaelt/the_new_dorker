@@ -17,12 +17,12 @@ interface Props {
 const News: React.FC<Props> = ({ news }) => {
   const [nrGen, setNrgen] = useState<number>(Math.floor(Math.random() * 3 + 1));
 
-  console.log(nrGen);
+  console.log(news);
   return (
     <div className={Styles.outerDiv}>
       <div className={Styles.container}>
         {news?.map((news) => (
-          <EachNews key={news.publishedAt} news={news} />
+          <EachNews news={news} />
         ))}
         <PopUp />
       </div>

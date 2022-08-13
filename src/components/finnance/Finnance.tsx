@@ -80,7 +80,7 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
         <hr />
       </nav>
       {toogle ? (
-        <form className={Styles.form} action=''>
+        <div className={Styles.form}>
           <label htmlFor=''>
             Search for comapny name or part of comapany name
           </label>
@@ -90,7 +90,7 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
             placeholder='Company name or part of'
             value={ticker}
           />
-        </form>
+        </div>
       ) : null}
 
       <div className={Styles.container}>
@@ -98,13 +98,13 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
         {toogle ? (
           <div className={Styles.stockContainer}>
             {filteredStocks?.map((stock) => (
-              <Stock stock={stock} />
+              <Stock key={stock.symbol} stock={stock} />
             ))}
           </div>
         ) : (
           <div className={Styles.stockNewsContainer}>
             {stockNews?.map((stock) => (
-              <StockNews stockNews={stock} />
+              <StockNews key={stock.title} stockNews={stock} />
             ))}
           </div>
         )}
@@ -112,7 +112,7 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
           <h3 className={Styles.gainsTitle}>Todays Gainers</h3>
           {stockGainers?.map((stock) => {
             return (
-              <div className={Styles.gainersDiv}>
+              <div key={stock.changesPercentage} className={Styles.gainersDiv}>
                 <p style={{ textDecoration: "underline" }}>
                   Ticker:{stock.symbol}
                 </p>

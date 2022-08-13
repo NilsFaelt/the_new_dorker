@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Styles from "./eachNews.module.css";
 
 interface NewsInterFace {
