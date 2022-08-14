@@ -38,7 +38,6 @@
     height: clamp(450px, 40vh, 40vh);
     border-radius: 5px;
     border: 1px solid white;
-    cursor: pointer;
     overflow: scroll;
     background-color: rgb(255, 255, 255);
 }

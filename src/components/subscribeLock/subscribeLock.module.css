@@ -10,6 +10,8 @@
     background-color: rgb(183, 180, 179);
     padding-top: 5vh;
     border-top: 1px solid black;
+    animation-name: fadeIn;
+    animation-duration: 4s;
 }
 .loginDiv{
     margin: 0 auto;
@@ -43,3 +45,13 @@
     width: 50vw;
     margin-top: 5vh;
 }
+
+
+
+
+@keyframes fadeIn {
+    from {margin-top:  200vh;}
+   
+  }
+  
+

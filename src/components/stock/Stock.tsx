@@ -15,20 +15,26 @@ interface Props {
 
 const Stock: React.FC<Props> = ({ stock }) => {
   return (
-    <div className={Styles.container}>
-      <div className={Styles.innerDiv}>
-        <h3 className={Styles.title}>
-          {stock.companyName} ({stock.symbol})
-        </h3>
-        <p>{stock.country}</p>
-        <p>Price: {stock.price}$</p>
-        <p>Marketcap: {stock.marketCap} $</p>
+    <a
+      target={"blank"}
+      className={Styles.link}
+      href={`https://finance.yahoo.com/quote/${stock?.symbol}?p=&.tsrc=fin-srch`}
+    >
+      <div className={Styles.container}>
+        <div className={Styles.innerDiv}>
+          <h3 className={Styles.title}>
+            {stock.companyName} ({stock.symbol})
+          </h3>
+          <p>{stock.country}</p>
+          <p>Price: {stock.price}$</p>
+          <p>Marketcap: {stock.marketCap} $</p>
+        </div>
+        <div className={Styles.innerDiv}>
+          <p>Exchange: {stock.exchangeShortName}</p>
+          <p>Sector: {stock.sector}</p>
+        </div>
       </div>
-      <div className={Styles.innerDiv}>
-        <p>Exchange: {stock.exchangeShortName}</p>
-        <p>Sector: {stock.sector}</p>
-      </div>
-    </div>
+    </a>
   );
 };
 

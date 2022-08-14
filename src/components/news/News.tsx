@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EachNews from "../eachNews/EachNews";
 import PopUp from "../popUp/PopUp";
 import PopUpVideo from "../popUpVideo/PopUpVideo";
+import ZommedInNews from "../zoomedInNews/ZommedInNews";
 import Styles from "./news.module.css";
 
 interface NewsInterFace {
@@ -15,14 +16,21 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ news }) => {
-  const [nrGen, setNrgen] = useState<number>(Math.floor(Math.random() * 3 + 1));
+  const [nrGen, setNrgen] = useState<number>(Math.floor(Math.random() * 2 + 1));
+  const [popUpNews, setPopUpNews] = useState<NewsInterFace | null>(null);
+  const [tooglePopUpNews, setTooglePopUpNews] = useState<boolean>(false);
 
-  console.log(news);
+  console.log(popUpNews);
   return (
     <div className={Styles.outerDiv}>
       <div className={Styles.container}>
         {news?.map((news) => (
-          <EachNews news={news} />
+          <EachNews
+            setTooglePopUpNews={setTooglePopUpNews}
+            setPopUpNews={setPopUpNews}
+            key={news.title}
+            news={news}
+          />
         ))}
         <PopUp />
       </div>
@@ -34,6 +42,12 @@ const News: React.FC<Props> = ({ news }) => {
         </a>
       </div>
       {nrGen === 2 ? <PopUpVideo setNrgen={setNrgen} /> : null}
+      {tooglePopUpNews ? (
+        <ZommedInNews
+          setTooglePopUpNews={setTooglePopUpNews}
+          popUpNews={popUpNews}
+        />
+      ) : null}
     </div>
   );
 };

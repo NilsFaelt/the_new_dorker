@@ -151,6 +151,8 @@ function App() {
     fetchStocks();
   }, []);
 
+  console.log(news);
+
   return (
     <div className='App'>
       <Header

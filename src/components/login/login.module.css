@@ -14,7 +14,7 @@
     position: absolute;
     right:clamp(10px, 5vw, 100px);
     top: 12vh;
-    z-index: 15;
+    z-index: 26;
     font-family: 'Cinzel', serif;
 }
 .form{
@@ -71,11 +71,9 @@
    
 }
 .singleSetting{
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 2vw;
     margin-top: 1vh;
-
 }
