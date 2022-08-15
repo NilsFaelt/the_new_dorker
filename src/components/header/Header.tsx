@@ -40,6 +40,7 @@ const Header: React.FC<Props> = ({
   const [toogleLogin, setToogleLogin] = useState<boolean>(false);
   const [toogleCreateAccount, setToogleCreateAccount] =
     useState<boolean>(false);
+  const [toogleMarket, setToogleMarket] = useState<boolean>(false);
 
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
@@ -55,6 +56,10 @@ const Header: React.FC<Props> = ({
       setToogleCreateAccount(false);
     }
   };
+
+  setTimeout(() => {
+    setToogleMarket(!toogleMarket);
+  }, 15000);
 
   return (
     <header className={Styles.container}>
@@ -91,6 +96,15 @@ const Header: React.FC<Props> = ({
       ) : null}
 
       <div className={Styles.weatherDiv}>
+        {toogleMarket ? (
+          <p className={Styles.marketPercent}>
+            Nasdaq: <br /> <span className={Styles.percentGreen}>+1.2%</span>
+          </p>
+        ) : (
+          <p className={Styles.marketPercent}>
+            DowJones: <br /> <span className={Styles.percentRed}>-0.4%</span>
+          </p>
+        )}
         <div>
           <p>Weather: {city}</p>
           <p>Temp: {weather?.temp_c} °</p>
