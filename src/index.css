@@ -12,7 +12,7 @@ button{
     padding: 0.5vw;   
     margin-top: 1.3vh;
     align-self: auto;
-    border: solid 3px rgb(233, 233, 233);
+    border: solid 3px rgb(176, 174, 174);
     cursor: pointer;
     width: clamp(80px, 5vw, 100px);
     align-self: center;
@@ -20,8 +20,7 @@ button{
 }
 button:hover{
     background-color: rgb(118, 86, 86);
-    border: solid 3px rgb(233, 233, 233);
- 
+    border: solid 3px rgb(248, 242, 225);
 }
 h4{
     margin-top: 1vh;

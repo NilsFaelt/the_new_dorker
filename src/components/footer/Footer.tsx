@@ -90,7 +90,7 @@ const Footer: React.FC<Props> = ({
             ref={subscribeRef}
           />
           <button
-            style={{ alignSelf: "auto", marginTop: "0.5vh" }}
+            style={{ alignSelf: "auto", marginTop: "0.7vh" }}
             className={Styles.btn}
           >
             Subscribe
