@@ -12,10 +12,14 @@ const SellNews = () => {
   const [message, setMessage] = useState<string>("");
   const [confirm, setConfirm] = useState<boolean>(false);
   const [myEmail, setMyEmail] = useState<string | null>(null);
+  const [mailAlarm, setMailAlarm] = useState<boolean>(false);
 
   const sendEmail = (e: any) => {
     setMailconfirmation(mail);
     e.preventDefault();
+    if (mail !== confirmEmail) {
+      setMailAlarm(true);
+    }
     if (mail === confirmEmail) {
       setConfirm(true);
       emailjs
@@ -52,6 +56,12 @@ const SellNews = () => {
       setConfirmEmail(myEmail);
     }
   };
+
+  if (mailAlarm) {
+    setTimeout(() => {
+      setMailAlarm(false);
+    }, 100);
+  }
 
   console.log(uploadedFile);
   return (
@@ -96,7 +106,7 @@ const SellNews = () => {
             onChange={(e) => setMail(e.target.value)}
             name='message'
             required
-            className={Styles.input}
+            className={!mailAlarm ? Styles.input : Styles.inputActive}
             value={mail}
             type='mail'
             placeholder='Email:'
@@ -107,7 +117,7 @@ const SellNews = () => {
           <input
             onChange={(e) => setConfirmEmail(e.target.value)}
             required
-            className={Styles.input}
+            className={!mailAlarm ? Styles.input : Styles.inputActive}
             value={confirmEmail}
             type='mail'
             placeholder='Email:'

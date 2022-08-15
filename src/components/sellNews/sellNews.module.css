@@ -39,7 +39,11 @@
 }
 .input{
     width: clamp(200px, 30vw, 60vw);
-
+}
+.inputActive{
+    width: clamp(200px, 30vw, 60vw);
+    background-color: rgb(252, 233, 233);
+    border: 1px solid black;
 }
 .label{
     font-family: 'Cinzel', serif;

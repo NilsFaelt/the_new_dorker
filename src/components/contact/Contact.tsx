@@ -10,11 +10,16 @@ const Contact = () => {
   const [message, setMessage] = useState<string>("");
   const [confirm, setConfirm] = useState<boolean>(false);
   const [myEmail, setMyEmail] = useState<string | null>(null);
+  const [mailAlarm, setMailAlarm] = useState<boolean>(false);
 
   console.log(auth.currentUser?.email, "auth mufker");
   const sendEmail = (e: any) => {
     setMailconfirmation(mail);
     e.preventDefault();
+    if (mail !== confirmMail) {
+      setMailAlarm(true);
+      console.log("wrong");
+    }
     if (mail === confirmMail) {
       setConfirm(true);
       emailjs
@@ -51,6 +56,12 @@ const Contact = () => {
       setConfirmMail(myEmail);
     }
   };
+
+  if (mailAlarm) {
+    setTimeout(() => {
+      setMailAlarm(false);
+    }, 100);
+  }
 
   return (
     <div className={Styles.container}>
@@ -89,6 +100,7 @@ const Contact = () => {
         ) : null}
         <label htmlFor=''>Email:</label>
         <input
+          className={mailAlarm ? Styles.inputActive : ""}
           required
           value={mail}
           onChange={(e) => setMail(e.target.value)}
@@ -97,6 +109,7 @@ const Contact = () => {
         />
         <label htmlFor=''>Confirm Email:</label>
         <input
+          className={mailAlarm ? Styles.inputActive : ""}
           required
           value={confirmMail}
           onChange={(e) => setConfirmMail(e.target.value)}
