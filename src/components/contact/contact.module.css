@@ -6,10 +6,10 @@
     margin: 0 auto;
     margin-top: 5vh;
     width: clamp(350px, 45vw, 70vw);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 5px;
     box-shadow: 5px 5px 5px;
-    background-color: rgb(226, 226, 226);   
+    background-color: rgba(226, 226, 226, 0.585);   
     font-family: 'Cinzel', serif;
     font-size: calc(10px + 0.3vw);
 

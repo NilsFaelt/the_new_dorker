@@ -59,6 +59,7 @@ const Contact = () => {
         The New Dorker
       </h4>
       <p>Adress: 500 Montgomery Lane, NY 556738</p>
+
       {confirm ? (
         <div
           onClick={() => setConfirm(false)}

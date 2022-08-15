@@ -7,12 +7,12 @@
     padding-top: 2vh;
     width: clamp(350px, 50vw, 60vw);
     height: auto;
-    border: 1px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 5px;
     font-family: 'Cinzel', serif;
     font-size: calc(10px + 0.4vw);
     background-color: rgb(226, 226, 226);
+    padding: 2vw;
   
 }
 .text{
