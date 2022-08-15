@@ -7,13 +7,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
-    height: auto;
+    height: clamp(300px, 80vh, 80vh);
     border: 1px solid black;
     border-radius: 5px;
     z-index: 30;
     background-color: white;
     box-shadow: 5px 5px 5px;
     padding: 2vw;
+    overflow: scroll;
    
 }
 .xIcon{
@@ -41,4 +42,8 @@
     margin-left: 5vw;
     margin-top: 3vh;
     font-size: calc(6px + 0.3vw);
+}
+.playerDiv{
+position: absolute;
+right: 2vw;
 }
