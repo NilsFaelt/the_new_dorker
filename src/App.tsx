@@ -22,14 +22,13 @@ import Contact from "./components/contact/Contact";
 import { ChevronDoubleUpIcon } from "@heroicons/react/solid";
 import AllowCookies from "./components/allowCookies/AllowCookies";
 
-interface Condition {
-  text: string;
-  icon: string;
-}
 interface WeatherApi {
-  condition: Condition;
-  temp_c: number;
-  is_day: number;
+  conditions: string;
+  temp: number;
+  icon: string;
+  datetime?: string;
+  sunrise?: string;
+  sunset?: string;
 }
 interface NewsInterFace {
   content: string;
@@ -63,7 +62,7 @@ interface StocksNewsInterface {
 }
 
 function App() {
-  const [city, setCity] = useState<string>("stockholm");
+  const [city, setCity] = useState<string>("Stockholm");
   const [weather, setWeather] = useState<WeatherApi | null>(null);
   const [news, setNews] = useState<NewsInterFace[] | null>(null);
   const [stockNews, setStockNews] = useState<StocksNewsInterface[] | null>(
@@ -132,9 +131,10 @@ function App() {
   const fetchWeather = async () => {
     try {
       const response = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}=${city}&aqi=no`
+        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${WEATHER_API_KEY} `
       );
-      setWeather(response.data.current);
+      setWeather(response.data.currentConditions);
+      console.log(response);
     } catch (err) {
       console.log("Failed to fetch weather api, error:", err);
     }

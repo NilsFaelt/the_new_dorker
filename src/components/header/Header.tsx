@@ -12,14 +12,10 @@ import SubscribeLock from "../subscribeLock/SubscribeLock";
 import EachNews from "../eachNews/EachNews";
 import ZommedInNews from "../zoomedInNews/ZommedInNews";
 
-interface Condition {
-  text: string;
-  icon: string;
-}
 interface Weather {
-  condition: Condition;
-  temp_c: number;
-  is_day: number;
+  conditions: string;
+  temp: number;
+  icon?: string;
 }
 
 interface NewsInterFace {
@@ -180,9 +176,9 @@ const Header: React.FC<Props> = ({
         )}
         <div>
           <p>Weather: {city}</p>
-          <p>Temp: {weather?.temp_c} °</p>
+          <p>Temp: {weather?.temp} F</p>
         </div>
-        <img className={Styles.logo} src={weather?.condition.icon} alt='' />
+        {/* <img className={Styles.logo} src={weather.conditions} alt='' /> */}
       </div>
       <p className={Styles.date}> Date: {date}</p>
       {toogleMenu ? (

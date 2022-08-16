@@ -1,9 +1,9 @@
 .container{
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
+    gap: 1.9vh;
     width: clamp(200px, 15vw, 500px);
-    height: 25vh;
+    height: 35vh;
     border: solid 1px grey;
     border-radius: 5px;
     box-shadow: 2px 2px 2px black;
@@ -38,42 +38,36 @@
     align-items: center;
     gap: 1vh;
     margin: 0 auto;
-    margin-top: 2vh;
+    margin-top: 0vh;
+    
  
 }
 .textInnerInfoContainer{
     border: 1px solid black;
-    padding: 1vw;
+    padding: 3vw;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.53);
+    background-color: rgba(255, 255, 255, 0.84);
 }
 
 .title{
     margin-top: 1vh;
+    margin-bottom: 1vh;
     font-size: calc(10px + 0.3vw);
 }
 .text{
     font-size: calc(10px + 0.3vw);
+    margin-top: 0.3vh;
 }
-.logoWrapper{
-    margin: 0vh;
-    display: flex;
-    flex-direction: row;
-   
-}
-.logo{
-    position: relative;
-    margin-top: -3.5vh;
-    margin-left: clamp(40px, 3vw, 70px);
-    width: clamp(40px, 3vw, 3vw);
-   
-}
+
 .xIcon{
     color: red;
     width: calc(12px + 1vw);
-    margin-top: -1.5vw ;
-    margin-left: -1.5vw ;
+    margin-top: -2.5vw ;
+    margin-left: -2.5vw ;
     margin-bottom: 1vh;
     cursor: pointer;
+}
 
+.suntime{
+    margin-top: 2vh;
 }
