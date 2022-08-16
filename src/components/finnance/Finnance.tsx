@@ -41,20 +41,21 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
     StocksInterface[] | null
   >(null);
 
-  const searchForTicker = (e: FormEvent) => {
-    e.preventDefault();
-    const filteredStocks = stocks?.filter((stocks) =>
-      stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
-    );
+  // const searchForTicker = (e: FormEvent) => {
+  //   e.preventDefault();
+  //   const filteredStocks = stocks?.filter((stocks) =>
+  //     stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
+  //   );
 
-    if (ticker === "") {
-      setFilteredStocks(stocks);
-    } else if (ticker !== "" && filteredStocks) {
-      setFilteredStocks(filteredStocks);
-    }
-    setTicker("");
-    console.log(filteredStocks, "testing");
-  };
+  //   if (ticker === "") {
+  //     setFilteredStocks(stocks);
+  //   } else if (ticker !== "" && filteredStocks) {
+  //     setFilteredStocks(filteredStocks);
+  //   }
+  //   setTicker("");
+  //   console.log(filteredStocks, "testing");
+  // };
+
   useEffect(() => {
     try {
       setFilteredStocks(stocks);

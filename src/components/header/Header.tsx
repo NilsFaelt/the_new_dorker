@@ -5,10 +5,12 @@ import { UserIcon } from "@heroicons/react/outline";
 import { getDate } from "../../functions/getDate";
 import { Link } from "react-router-dom";
 import BurgerMenu from "../menus/burger/BurgerMenu";
-import { useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Login from "../login/Login";
 import CreateAccount from "../login/createAccount/CreateAccount";
 import SubscribeLock from "../subscribeLock/SubscribeLock";
+import EachNews from "../eachNews/EachNews";
+import ZommedInNews from "../zoomedInNews/ZommedInNews";
 
 interface Condition {
   text: string;
@@ -20,10 +22,18 @@ interface Weather {
   is_day: number;
 }
 
+interface NewsInterFace {
+  content: string;
+  publishedAt?: string;
+  title: string;
+  image: string;
+}
+
 interface Props {
   subscribeRef: any;
   weather: Weather | null;
   city: string;
+  news: NewsInterFace[] | null;
   setToogleChat: (toogle: boolean) => void;
   setToogleWetaher: (toogle: boolean) => void;
 }
@@ -34,6 +44,7 @@ const Header: React.FC<Props> = ({
   setToogleChat,
   setToogleWetaher,
   subscribeRef,
+  news,
 }) => {
   const date = getDate();
   const [loggedIn, setLoggedin] = useState<string | null>(null);
@@ -43,6 +54,11 @@ const Header: React.FC<Props> = ({
     useState<boolean>(false);
   const [toogleMarket, setToogleMarket] = useState<boolean>(false);
   const [toogleSearch, setToogleSearch] = useState<boolean>(false);
+  const [popUpNews, setPopUpNews] = useState<boolean>(false);
+  const [searchNews, setSearchNews] = useState("");
+  const [headerNewsSearch, setHeaderNewsSearch] = useState<
+    NewsInterFace[] | null
+  >(news);
 
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
@@ -63,19 +79,59 @@ const Header: React.FC<Props> = ({
     setToogleMarket(!toogleMarket);
   }, 15000);
 
+  const searchNewsOnClick = () => {
+    setToogleSearch(!toogleSearch);
+  };
+
+  useEffect(() => {
+    const filteredNews = news?.filter((news) =>
+      news.title.toUpperCase().includes(searchNews.toUpperCase())
+    );
+    console.log(filteredNews);
+    if (searchNews === "") {
+      setHeaderNewsSearch(null);
+    }
+    if (searchNews !== "" && filteredNews) {
+      setHeaderNewsSearch(filteredNews);
+    }
+  }, [searchNews]);
+
+  const popUpnewsOnClick = () => {
+    setPopUpNews(!popUpNews);
+  };
+  console.log(popUpNews);
   return (
     <header className={Styles.container}>
       <MenuIcon onClick={() => toogleMenuOnClick()} className={Styles.burger} />
       <SearchIcon
-        onClick={() => setToogleSearch(!toogleSearch)}
+        onClick={() => searchNewsOnClick()}
         className={Styles.search}
       />
       {toogleSearch ? (
         <input
+          onChange={(e) => setSearchNews(e.target.value)}
           className={Styles.inputSearch}
           type='text'
           placeholder='Search for news'
+          value={searchNews}
         />
+      ) : null}
+      {headerNewsSearch && toogleSearch ? (
+        <div className={Styles.newsContainer}>
+          {headerNewsSearch?.map((eachNews) => (
+            <div>
+              <h3 onClick={popUpnewsOnClick} className={Styles.searchNewsTitle}>
+                {eachNews?.title}
+                {popUpNews ? (
+                  <ZommedInNews
+                    popUpNews={eachNews}
+                    setTooglePopUpNews={setPopUpNews}
+                  />
+                ) : null}
+              </h3>
+            </div>
+          ))}
+        </div>
       ) : null}
       <UserIcon
         onClick={() => toogleLoginOnClick()}

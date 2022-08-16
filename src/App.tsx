@@ -161,6 +161,7 @@ function App() {
         weather={weather}
         city={city}
         subscribeRef={subscribeRef}
+        news={news}
       />
       <Menu setToogleWetaher={setToogleWetaher} />
       <Routes>

@@ -6,8 +6,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90vw;
-    height: clamp(300px, 80vh, 80vh);
+    width: 80vw;
+    height: clamp(300px, 90vh, 80vh);
     border: 1px solid black;
     border-radius: 5px;
     z-index: 30;
@@ -15,6 +15,7 @@
     box-shadow: 5px 5px 5px;
     padding: 2vw;
     overflow: scroll;
+    background-color: white;
    
 }
 .xIcon{
@@ -23,6 +24,7 @@
     left: clamp(10px, 2vw, 10px);
     top: 1vh;
     cursor: pointer;
+    z-index: 30;
 }
 .img{
     margin-left: 5vw;

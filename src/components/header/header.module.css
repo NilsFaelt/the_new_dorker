@@ -34,7 +34,7 @@
     height: calc(30px + 1vw);
     width: auto;
     cursor: pointer;
-    z-index: 5;
+    z-index: 31;
 }
 .burger:hover{
    transform: scale(1.1);
@@ -115,7 +115,7 @@
     border-radius: 35px;
     padding: 1vw;
     background-color: rgb(226, 226, 226);
-    z-index:41;
+    z-index:29;
     font-size: calc(8px + 0.3vw);
     margin-bottom: 0.3vh;
     background-color: white;
@@ -127,6 +127,26 @@
 
  }
 
+ .newsContainer{
+    position: absolute;
+    width: clamp(150px, 10vw, 10vw);
+    height: auto;
+    left: 10vw;
+    top: 15vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1vw;
+    padding-bottom: 2vh;
+    z-index: 20;
+    background-color: white;
+    overflow: scroll;
+ }
+.searchNewsTitle{
+    font-size: calc(10px + 0.3vw);
+    margin-top: 2vh;
+    text-decoration: underline;
+    cursor: pointer;
+}
  @media screen and (max-width: 750px) {
     .inputSearch{
         opacity: 0;
