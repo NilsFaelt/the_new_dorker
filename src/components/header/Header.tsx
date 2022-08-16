@@ -1,5 +1,6 @@
 import Styles from "./header.module.css";
 import { MenuIcon } from "@heroicons/react/outline";
+import { SearchIcon } from "@heroicons/react/outline";
 import { UserIcon } from "@heroicons/react/outline";
 import { getDate } from "../../functions/getDate";
 import { Link } from "react-router-dom";
@@ -41,6 +42,7 @@ const Header: React.FC<Props> = ({
   const [toogleCreateAccount, setToogleCreateAccount] =
     useState<boolean>(false);
   const [toogleMarket, setToogleMarket] = useState<boolean>(false);
+  const [toogleSearch, setToogleSearch] = useState<boolean>(false);
 
   const toogleMenuOnClick = () => {
     setToogleMenu(!toogleMenu);
@@ -64,6 +66,17 @@ const Header: React.FC<Props> = ({
   return (
     <header className={Styles.container}>
       <MenuIcon onClick={() => toogleMenuOnClick()} className={Styles.burger} />
+      <SearchIcon
+        onClick={() => setToogleSearch(!toogleSearch)}
+        className={Styles.search}
+      />
+      {toogleSearch ? (
+        <input
+          className={Styles.inputSearch}
+          type='text'
+          placeholder='Search for news'
+        />
+      ) : null}
       <UserIcon
         onClick={() => toogleLoginOnClick()}
         className={!loggedIn ? Styles.user : Styles.userLogedIn}
