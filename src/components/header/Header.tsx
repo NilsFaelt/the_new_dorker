@@ -92,13 +92,16 @@ const Header: React.FC<Props> = ({
       setHeaderNewsSearch(null);
     }
     if (searchNews !== "" && filteredNews) {
+      setPopUpNews(true);
       setHeaderNewsSearch(filteredNews);
     }
   }, [searchNews]);
 
-  const popUpnewsOnClick = () => {
-    setPopUpNews(!popUpNews);
+  const zomedInNEwsClickHandler = () => {
+    setPopUpNews(false);
+    setSearchNews("");
   };
+
   console.log(popUpNews);
   return (
     <header className={Styles.container}>
@@ -117,16 +120,17 @@ const Header: React.FC<Props> = ({
         />
       ) : null}
       {headerNewsSearch && toogleSearch ? (
-        <div className={Styles.newsContainer}>
+        <div>
           {headerNewsSearch?.map((eachNews) => (
             <div>
-              <h3 onClick={popUpnewsOnClick} className={Styles.searchNewsTitle}>
-                {eachNews?.title}
+              <h3 className={Styles.searchNewsTitle}>
                 {popUpNews ? (
-                  <ZommedInNews
-                    popUpNews={eachNews}
-                    setTooglePopUpNews={setPopUpNews}
-                  />
+                  <div onClick={() => zomedInNEwsClickHandler()}>
+                    <ZommedInNews
+                      popUpNews={eachNews}
+                      setTooglePopUpNews={setPopUpNews}
+                    />
+                  </div>
                 ) : null}
               </h3>
             </div>

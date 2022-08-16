@@ -50,7 +50,7 @@ const Weather: React.FC<Props> = ({
         </form>
         <div className={Styles.textInnerInfoContainer}>
           <h2 className={Styles.title}> City: {city}</h2>
-          <p className={Styles.text}>Temp:{weather?.temp_c}</p>
+          <p className={Styles.text}>Temp:{weather?.temp_c} °C</p>
           <div className={Styles.logoWrapper}>
             <p className={Styles.text}>{weather?.condition.text}</p>
             <img

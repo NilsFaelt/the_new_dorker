@@ -10,7 +10,7 @@
     height: clamp(300px, 90vh, 80vh);
     border: 1px solid black;
     border-radius: 5px;
-    z-index: 30;
+    z-index: 28;
     background-color: white;
     box-shadow: 5px 5px 5px;
     padding: 2vw;
