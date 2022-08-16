@@ -18,8 +18,8 @@ const Login: React.FC<Props> = ({
   loggedIn,
   setLoggedin,
 }) => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("anatole0000@gmail.com");
+  const [password, setPassword] = useState<string>("nilsnils");
   const [toogleSettings, setToogleSettings] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);

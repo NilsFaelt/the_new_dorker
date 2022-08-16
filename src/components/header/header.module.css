@@ -114,7 +114,6 @@
     border: 1px solid black;
     border-radius: 35px;
     padding: 1vw;
-    box-shadow: 5px 5px 5px;
     background-color: rgb(226, 226, 226);
     z-index:41;
     font-size: calc(8px + 0.3vw);
@@ -127,5 +126,16 @@
     border-color: #719ECE;
 
  }
+
+ @media screen and (max-width: 750px) {
+    .inputSearch{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .search{
+        opacity: 0;
+        pointer-events: none;
+    }
+  }
 
 

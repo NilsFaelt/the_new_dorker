@@ -78,6 +78,26 @@
     width: clamp(250px, 30vw, 30vw);
     margin-bottom: 5vh;
 }
+
+.inputSearch{
+    left: 12vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 35px;
+    padding: 1vw;
+    background-color: rgb(226, 226, 226);
+    font-size: calc(8px + 0.3vw);
+    margin-bottom: 0.3vh;
+    background-color: white;
+}
+
+.inputSearch:focus { 
+    outline: none !important;
+    border-color: #719ECE;
+ }
+
 .stockNewsContainer{
     display: flex ;
     flex-direction: column;

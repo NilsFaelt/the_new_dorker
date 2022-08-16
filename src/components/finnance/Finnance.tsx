@@ -56,15 +56,19 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
     console.log(filteredStocks, "testing");
   };
   useEffect(() => {
-    setFilteredStocks(stocks);
-    const filteredStocks = stocks?.filter((stocks) =>
-      stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
-    );
-
-    if (ticker === "") {
+    try {
       setFilteredStocks(stocks);
-    } else if (ticker !== "" && filteredStocks) {
-      setFilteredStocks(filteredStocks);
+      const filteredStocks = stocks?.filter((stocks) =>
+        stocks.companyName.toUpperCase().includes(ticker.toUpperCase())
+      );
+
+      if (ticker === "") {
+        setFilteredStocks(stocks);
+      } else if (ticker !== "" && filteredStocks) {
+        setFilteredStocks(filteredStocks);
+      }
+    } catch (err) {
+      console.log(`Something went wrong in filterstocks, error: ${err}`);
     }
 
     console.log(filteredStocks, "testing");
@@ -85,6 +89,7 @@ const Finnance: React.FC<Props> = ({ stockGainers, stocks, stockNews }) => {
             Search for comapny name or part of comapany name
           </label>
           <input
+            className={Styles.inputSearch}
             onChange={(e) => setTicker(e.target.value)}
             type='text'
             placeholder='Company name or part of'

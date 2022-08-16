@@ -18,7 +18,6 @@ const Contact = () => {
     e.preventDefault();
     if (mail !== confirmMail) {
       setMailAlarm(true);
-      console.log("wrong");
     }
     if (mail === confirmMail) {
       setConfirm(true);
