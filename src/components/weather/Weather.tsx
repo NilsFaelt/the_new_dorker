@@ -32,7 +32,7 @@ const Weather: React.FC<Props> = ({
     setGetCity("");
   };
   return (
-    <div className={weather ? Styles.container : Styles.containerNight}>
+    <div className={Styles.container}>
       <XIcon onClick={() => setToogleWetaher(false)} className={Styles.xIcon} />
       <div className={Styles.infoContainer}>
         <form onSubmit={(e) => handleSubmit(e)} action=''>
