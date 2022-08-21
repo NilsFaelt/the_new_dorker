@@ -58,6 +58,7 @@ const Chat: React.FC<Props> = ({ setToogleChat }) => {
           onChange={(e) => setMessage(e.target.value)}
           type='text'
           value={message}
+          className={Styles.input}
         />
         <button>Send</button>
       </form>
