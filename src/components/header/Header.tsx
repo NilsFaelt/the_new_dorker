@@ -190,7 +190,7 @@ const Header: React.FC<Props> = ({
           setToogleChat={setToogleChat}
         />
       ) : null}
-      {loggedIn ? null : (
+      {!loggedIn ? null : (
         <SubscribeLock
           setToogleCreateAccount={setToogleCreateAccount}
           setToogleLogin={setToogleLogin}
