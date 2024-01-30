@@ -18,7 +18,7 @@ const LiveNews = () => {
           height={"50vh"}
           style={{ marginTop: "10vh", pointerEvents: "none" }}
           playing={true}
-          url='https://www.youtube.com/watch?v=9Auq9mYxFEE'
+          url='https://www.youtube.com/watch?v=YDfiTGGPYCk'
         />
         {mute ? (
           <VolumeOffIcon
